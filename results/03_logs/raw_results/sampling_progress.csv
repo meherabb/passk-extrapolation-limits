@@ -1,0 +1,11 @@
+stream,label,problems,target,done
+gsm8k:base,GSM8K / Qwen2.5-0.5B,300,300,True
+gsm8k:instruct,GSM8K / Qwen2.5-0.5B-Instruct,300,300,True
+gsm8k:base15,GSM8K / Qwen2.5-1.5B,300,300,True
+gsm8k:rl15,GSM8K / Qwen2.5-1.5B-SimpleRL-Zoo,300,300,True
+math500:base,MATH-500 / Qwen2.5-0.5B,300,300,True
+math500:instruct,MATH-500 / Qwen2.5-0.5B-Instruct,300,300,True
+math500:base_x2,MATH-500 / Qwen2.5-0.5B,300,300,True
+math500:base_x3,MATH-500 / Qwen2.5-0.5B,300,300,True
+math500:base_x4,MATH-500 / Qwen2.5-0.5B,300,300,True
+math500:instruct1k,MATH-500 / Qwen2.5-0.5B-Instruct,300,300,True
