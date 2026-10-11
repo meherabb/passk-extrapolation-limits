@@ -1,0 +1,7 @@
+# Keep line endings as stored: results/SHA256SUMS.txt is computed over the exact bytes of every file.
+* text=auto eol=lf
+*.pkl binary
+*.npz binary
+*.pdf binary
+*.png binary
+*.zip binary

@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# Output of tools/run_notebook.py and other local runs (contain absolute paths of the machine they ran on)
+runs/
+outputs/
+
+# Private list of strings that must not appear anywhere in the repository (used by tools/scan_anonymity.py)
+.anonymity-terms
+
+# LaTeX build files
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.fdb_latexmk
+paper/*.fls
+paper/*.log
+paper/*.out
+paper/*.synctex.gz
+paper/*.toc
+paper/main.pdf
+
+# Operating-system files
+.DS_Store
+Thumbs.db

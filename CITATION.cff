@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: >-
+  If you use this repository, please cite the paper below. The author list is
+  withheld while the paper is under double-blind review.
+title: >-
+  Extrapolating pass@k Beyond the Sampled Range: A Quadratic Horizon in
+  Principle, an Error Floor in Practice
+type: software
+authors:
+  - name: "Anonymous Authors"
+license: MIT
+keywords:
+  - pass@k
+  - repeated sampling
+  - extrapolation
+  - partial identification
+  - language model evaluation
