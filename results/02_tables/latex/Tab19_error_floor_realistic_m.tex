@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Distribution & pass@16n & t=2 & t=4 & t=8 & t=16 & t=32 & t=64 & t=16, m=500 \\
+\midrule
+Q-0.5B MATH (E8) & 0.834 & 0.011 & 0.040 & 0.088 & 0.123 & 0.132 & 0.132 & 0.133 \\
+GSM8K L3-8B-I & 1.000 & 0.002 & 0.004 & 0.004 & 0.005 & 0.005 & 0.005 & 0.006 \\
+GSM8K L3-70B-I & 0.996 & 0.001 & 0.002 & 0.002 & 0.003 & 0.004 & 0.005 & 0.004 \\
+MATH L3-8B-I & 0.911 & 0.010 & 0.032 & 0.066 & 0.087 & 0.092 & 0.092 & 0.095 \\
+MATH L3-70B-I & 0.960 & 0.008 & 0.022 & 0.038 & 0.043 & 0.043 & 0.043 & 0.047 \\
+CC L3-8B-I & 0.142 & 0.005 & 0.015 & 0.041 & 0.090 & 0.173 & 0.286 & 0.109 \\
+CC L3-70B-I & 0.265 & 0.007 & 0.020 & 0.055 & 0.116 & 0.207 & 0.310 & 0.140 \\
+MATH G-7B & 0.917 & 0.011 & 0.036 & 0.071 & 0.089 & 0.091 & 0.091 & 0.095 \\
+CC G-7B & 0.135 & 0.005 & 0.014 & 0.038 & 0.084 & 0.162 & 0.272 & 0.099 \\
+MATH P-12B & 0.667 & 0.011 & 0.044 & 0.122 & 0.205 & 0.242 & 0.247 & 0.225 \\
+\bottomrule
+\end{tabular}
+\caption{E10, the error floor at a realistic benchmark size (n = 32 attempts per problem). Columns t = ...: with m = 1,319 problems (the GSM8K test set), every estimator of the population pass@k, k = t n, errs by at least this much with probability at least 1/4 under one of two success-rate distributions whose count laws lie within squared Hellinger distance h(m) of the real one and of each other (Le Cam's two-point method; half the certified separation at h(m); alternatives on a support grid, which can only lower the floor). A floor above 0.05 means that accuracy +-0.05 is out of reach at this m. Last column: the same at m = 500 (MATH-500), t = 16. pass@16n: the value at the real distribution.}
+\label{tab:T19_error_floor_realistic_m}
+\end{table*}

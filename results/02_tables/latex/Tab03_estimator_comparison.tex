@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Estimator & Base k=48 & Base k=128 & Inst. k=48 & Inst. k=128 \\
+\midrule
+Doubling & 0.011±0.010 & -- & 0.012±0.008 & -- \\
+LP-cert & 0.036±0.018 & -- & 0.017±0.020 & -- \\
+Chen & -- & -- & -- & -- \\
+Power law & 0.011±0.009 & 0.026±0.007 & 0.009±0.007 & 0.018±0.006 \\
+Beta-bin. & 0.020±0.008 & 0.037±0.007 & 0.010±0.006 & 0.020±0.005 \\
+NPMLE & 0.015±0.011 & 0.040±0.019 & 0.011±0.006 & 0.019±0.011 \\
+Moments & 0.036±0.032 & 0.062±0.040 & 0.035±0.024 & 0.043±0.037 \\
+PI band (ours) & w 0.21; 8/8 & w 0.25; 8/8 & w 0.16; 8/8 & w 0.18; 8/8 \\
+\bottomrule
+\end{tabular}
+\caption{Mean absolute error (mean ± std over the 8 block seeds) of each estimator, computed from one 32-attempt block, against Chen et al.'s unbiased estimate from the other 224 attempts; -- = not reported (Chen: k > n; Doubling: t >= 2; LP-cert: t > 2). PI band row: mean width w of the 95\% identification band from the same block and the number of blocks whose held-out reference lies inside it.}
+\label{tab:T3_estimator_comparison}
+\end{table*}

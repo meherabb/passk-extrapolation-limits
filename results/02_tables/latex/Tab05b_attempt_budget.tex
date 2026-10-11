@@ -1,0 +1,20 @@
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+m & k & n\_min sufficient (LP-cert) & n\_min necessary (M5) \\
+\midrule
+500 & 64 & 64.0 & 8 \\
+500 & 128 & 128.0 & 8 \\
+500 & 256 & -- & 16 \\
+500 & 512 & -- & 32 \\
+5000 & 64 & 32.0 & 8 \\
+5000 & 128 & 64.0 & 8 \\
+5000 & 256 & 128.0 & 8 \\
+5000 & 512 & -- & 8 \\
+\bottomrule
+\end{tabular}
+\caption{Attempt budget n\_min at eps = 0.1: smallest n on the grid [8, 16, 32, 64, 128] with LP-cert <= eps (sufficient) and smallest n whose M5 lower bound does not exceed eps (necessary).}
+\label{tab:T5b_attempt_budget}
+\end{table*}

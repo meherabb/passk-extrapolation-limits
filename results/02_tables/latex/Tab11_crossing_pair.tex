@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{p{1.9in}p{1.7in}p{1.7in}}
+\toprule
+Quantity & G1 (lenient) & G2 (strict) \\
+\midrule
+pass@1 base / RL & 0.461 / 0.757 & 0.312 / 0.734 \\
+pass@256, RL - base & -0.017 [-0.033, 0.000] & -0.023 [-0.043, -6.67e-03] \\
+Crossing k* (256 attempts, 95\%) & 29.120 (17.266-79.437) & 46.434 (26.953-124.325) \\
+Base significantly ahead from k & 98 & 126 \\
+n with reversal beyond 2n: identified? & 8: no, 16: no, 32: no & 8: no, 16: no, 32: no \\
+Forecast k* from n = 32, Power law & 61.271 & 106.068 \\
+Forecast k* from n = 32, Beta-bin. & 27.653 & 40.958 \\
+Forecast k* from n = 32, NPMLE & -- & 43.742 \\
+Forecast k* from n = 32, Moments & 32.804 & 32.972 \\
+\bottomrule
+\end{tabular}
+\caption{E5, Qwen2.5-1.5B against Qwen2.5-1.5B-SimpleRL-Zoo on GSM8K (m = 300, same prompt), under both graders. The reversal is the range of k where the base model is significantly ahead in the 256-attempt data; for every n with 2n below its start, the table says whether the bands from the first n attempts identify it (paired simultaneous band for k <= n, difference of identification bands at delta/2 per model beyond n). Forecast k*: the crossing each family predicts from the first 32 attempts (-- = none up to k = 10^4).}
+\label{tab:T11_crossing_pair}
+\end{table*}

@@ -1,0 +1,23 @@
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+Distribution & t=2 & t=4 & t=16 & t=64 & w(t=4) & w(t=16) \\
+\midrule
+population limit 2E\_32(x^k) & 6.5e-09 & 5.7e-05 & 4.7e-02 & 3.4e-01 & 5.7e-05 & 4.7e-02 \\
+Q-0.5B MATH (E8) & 1.1e+04 & 4.7e+05 & >2e+12 & >2e+12 & 0.074 & 0.243 \\
+GSM8K L3-8B-I & 2.4e+02 & 2.4e+02 & 2.4e+02 & 2.4e+02 & 0.009 & 0.010 \\
+GSM8K L3-70B-I & 2.2e+02 & 2.2e+02 & 2.2e+02 & 2.2e+02 & 0.006 & 0.009 \\
+MATH L3-8B-I & 8.3e+03 & 2.0e+05 & 2.6e+10 & >2e+12 & 0.063 & 0.176 \\
+MATH L3-70B-I & 4.4e+03 & 3.1e+04 & 2.4e+05 & 2.5e+05 & 0.045 & 0.086 \\
+CC L3-8B-I & 4.9e+03 & 6.4e+04 & 1.8e+09 & >2e+12 & 0.041 & 0.225 \\
+CC L3-70B-I & 6.2e+03 & 1.2e+05 & 9.8e+09 & >2e+12 & 0.050 & 0.270 \\
+MATH G-7B & 9.6e+03 & 2.8e+05 & 3.7e+10 & >2e+12 & 0.067 & 0.175 \\
+CC G-7B & 4.4e+03 & 4.5e+04 & 2.6e+09 & >2e+12 & 0.039 & 0.207 \\
+MATH P-12B & 1.4e+04 & 1.1e+06 & >2e+12 & >2e+12 & 0.089 & 0.420 \\
+\bottomrule
+\end{tabular}
+\caption{E10a, the DKW band on real count laws (n = 32; kept from revision 4 for comparison with T15). Columns t = ...: the number of problems m at which the identification interval for pass@k, k = t n, narrows to width 0.1, for each real success-rate distribution (per-problem rates from 1,024 or about 10,000 attempts); m is the DKW sample size that pins the count CDF to tolerance eta, m = ln(2/delta)/(2 eta^2); '>' = not reached at m = 2e+12; '<=' = already reached at the smallest m on the grid. Columns w(t = ...): the interval width with m = 1.8e+06 problems. The intervals are lower bounds (support grid, no slack) for a count histogram equal to D's exact count law, so no sampling noise enters. First row: the population limit 2E\_n(x^k) of Theorem 1(A), which the interval approaches as m grows.}
+\label{tab:T15b_dkw_band_vs_benchmark_size}
+\end{table*}

@@ -1,0 +1,17 @@
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{p{1.35in}p{1.25in}p{1.0in}lp{1.1in}}
+\toprule
+Method & Guarantee at k = 48 & m = 300 & m -> inf & Measured (this run) \\
+\midrule
+Chen et al. (2021) & none for k > n & 0.0784 (k <= 32 only) & -- & -- \\
+Any W1 rate (Lipschitz k) & >= k E\_32(|x-1/2|) & >= 0.210 & >= 0.210 & -- \\
+Doubling (Thm 1B) & t sqrt(ln(2/d)/2m) + B\_n(t) & 0.1236 & 0.0060 & max dev 0.0269; MAE 0.0114 \\
+LP-cert (Prop. 1) & cert(h*) & 0.1148 & 0.0003 & MAE 0.0269 \\
+Lower bound (Thm 1C, prob. 1/4) & min(0.158, 0.0479 t/sqrt(m)) & 0.0041 (M5 0.0138) & 0 & -- \\
+\bottomrule
+\end{tabular}
+\caption{Comparison rows at (n, k, m, delta) = (32, 48, 300, 0.05). The W1 floor uses E\_32(|x-1/2|) = 0.00437 computed here by minimax LP. The lower-bound row holds at probability 1/4, the others at 0.95.}
+\label{tab:T4_sota_comparison_rows}
+\end{table*}

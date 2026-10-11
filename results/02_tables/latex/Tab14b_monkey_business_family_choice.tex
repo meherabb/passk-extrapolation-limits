@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lrrrrrrrrrr}
+\toprule
+Config & PL & BB & NP & MM & best 4n/far & backtest picks & picked err & inform. & fails/flip & FI (no MM) \\
+\midrule
+GSM8K L3-8B-I & 0.0001 & 0.0001 & 0.0028 & 0.0067 & BB/BB & PL3 BB2 NP3 & 0.0004 & no & N/N & 0.7 (1.4) \\
+GSM8K L3-70B-I & 0.0004 & 0.0000 & 0.0060 & 0.0029 & NP/BB & NP8 & 0.0060 & no & N/N & 1.8 (2.2) \\
+MATH L3-8B-I & 0.0077 & 0.0259 & 0.0440 & 0.1643 & PL/PL & PL4 BB2 NP2 & 0.0157 & yes & N/N & 6.6 (1.8) \\
+MATH L3-70B-I & 0.0072 & 0.0069 & 0.0189 & 0.1057 & PL/BB & PL3 BB2 NP3 & 0.0126 & no & N/N & 0.8 (1.9) \\
+CC L3-8B-I & 0.0220 & 0.0781 & 0.4009 & 0.5478 & PL/PL & PL2 BB4 NP2 & 0.1618 & yes & Y/N & 4.8 (6.0) \\
+CC L3-70B-I & 0.0517 & 0.0514 & 0.2920 & 0.3998 & BB/BB & PL2 BB5 NP1 & 0.0403 & yes & N/N & 3.3 (4.7) \\
+MATH G-7B & 0.0049 & 0.0271 & 0.0238 & 0.1167 & PL/PL & PL4 NP4 & 0.0173 & yes & Y/N & 6.1 (1.0) \\
+CC G-7B & 0.0565 & 0.0807 & 0.2074 & 0.2830 & BB/PL & PL2 BB3 NP3 & 0.0525 & yes & N/N & 4.2 (3.0) \\
+MATH P-12B & 0.0325 & 0.0525 & 0.0745 & 0.2635 & BB/PL & PL3 BB2 NP3 & 0.0575 & yes & N/N & 3.0 (1.5) \\
+\bottomrule
+\end{tabular}
+\caption{E9: mean |error| at the largest k (from n = 32 attempts, truth from the other N - n) of the three standard families and of moment matching; best family at k = 4n and at the largest k; the family chosen in each block by the in-window backtest and the far error of that choice; whether the stream is informative (worst family >= 0.02), whether the backtest fails and whether the best family flips (criteria in Section 9); family index at the largest k with all four families and without moment matching. Config codes: GSM8K, MATH, CC CodeContests; L3-8B-I / L3-70B-I Llama-3-8B/70B-Instruct, G-7B Gemma-7B, P-12B Pythia-12B. Estimator codes: Dbl doubling (ours), LP LP-cert (ours), PL power law, BB Beta-binomial, NP NPMLE, MM moment matching.}
+\label{tab:T14b_monkey_business_family_choice}
+\end{table*}

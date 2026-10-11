@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+Distribution & t=2 & t=4 & t=8 & t=16 & t=32 & t=64 \\
+\midrule
+Q-0.5B MATH (E8) & 12 & 53 & 580 & 22,000 & 2.7e6 & 3.6e8 \\
+GSM8K L3-8B-I & <10 & <10 & <10 & <10 & <10 & <10 \\
+GSM8K L3-70B-I & <10 & <10 & <10 & <10 & <10 & <10 \\
+MATH L3-8B-I & <10 & 24 & 86 & 260 & 310 & 320 \\
+MATH L3-70B-I & <10 & <10 & <10 & 11 & 12 & 13 \\
+CC L3-8B-I & <10 & 19 & 76 & 740 & 1.4e5 & 5.1e9 \\
+CC L3-70B-I & <10 & 27 & 140 & 3,100 & 1.6e6 & >1e12 \\
+MATH G-7B & 10 & 32 & 130 & 290 & 330 & 320 \\
+CC G-7B & <10 & 17 & 58 & 470 & 6.5e5 & 3.6e11 \\
+MATH P-12B & 16 & 100 & 4,200 & 4.1e6 & 7.5e11 & >1e12 \\
+\bottomrule
+\end{tabular}
+\caption{E10 at accuracy +-0.1 (n = 32): the number of problems below which no estimator can be within +-0.1 of the population pass@k, k = t n, with probability above 3/4 at every success-rate distribution whose count law lies within squared Hellinger distance h(m) of the real one. Same certified pairs as T15 (no new computation); this is the accuracy at which C1 and E7 state certification. Notation as in T15.}
+\label{tab:T15d_problems_needed_pm01}
+\end{table*}

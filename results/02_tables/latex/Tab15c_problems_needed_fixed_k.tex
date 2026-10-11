@@ -1,0 +1,15 @@
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lrrr}
+\toprule
+k & n=16 & n=32 & n=64 \\
+\midrule
+128 & 1,600 [<10, 6.3e5] & 71 [<10, 840] & 24 [<10, 67] \\
+512 & 6.1e9 [<10, >1e12] & 1.3e5 [<10, 2.9e10] & 770 [<10, 1.8e5] \\
+2,048 & >1e12 [<10, >1e12] & >1e12 [<10, >1e12] & 3.1e6 [<10, >1e12] \\
+\bottomrule
+\end{tabular}
+\caption{E10, the same lower bound at fixed k for n = 16, 32 and 64 attempts per problem: median [smallest, largest] number of problems below which no estimator reaches +-0.05 with probability above 3/4, over the 10 real count laws. Notation as in T15.}
+\label{tab:T15c_problems_needed_fixed_k}
+\end{table*}

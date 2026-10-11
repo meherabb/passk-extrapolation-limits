@@ -1,0 +1,14 @@
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lrrrrrrrrr}
+\toprule
+n & k near / far & PL far & BB far & NP far & best near & best far & backtest picks & picked far err & FI far (no MM) \\
+\midrule
+32 & 128 / 992 & 0.0307 & 0.0075 & 0.0696 & PL & BB & PL 5, BB 1, NP 2 & 0.0330 & 3.7 (1.7) \\
+128 & 512 / 768 & 0.0267 & 0.0042 & 0.0368 & BB & BB & PL 4, BB 1, NP 3 & 0.0295 & 2.8 (1.0) \\
+\bottomrule
+\end{tabular}
+\caption{E8, can the counts choose the family? Mean |error| at the far k of the three standard families (PL, BB, NP) from n attempts; the best family at k = 4n (near) and at the far k; the family chosen in each of the 8 blocks by an in-window backtest (fit on the first n/2 attempts of the block, scored on pass@k for k in (n/2, n]) and the far error of that choice; the family index at the far k with all four families and, in parentheses, without moment matching. Estimator codes: Dbl doubling (ours), LP LP-cert (ours), PL power law, BB Beta-binomial, NP NPMLE, MM moment matching.}
+\label{tab:T13b_ground_truth_family_choice}
+\end{table*}

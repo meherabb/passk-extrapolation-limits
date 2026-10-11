@@ -1,0 +1,24 @@
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Model & Check & G1 (numeric) & G2 (strict) & Agree \\
+\midrule
+Base & A1 (3 tests, Holm) & PASS & PASS & yes \\
+Base & Corollary 1 (k=48) & PASS & PASS & yes \\
+Base & Corollary 2 (k=48) & PASS & PASS & yes \\
+Base & Overdispersion & PASS & PASS & yes \\
+Base & E4 headline (k=48) & baseline lower & baseline lower & yes \\
+Base & E4 headline (k=64) & baseline lower & baseline lower & yes \\
+Instruct & A1 (3 tests, Holm) & PASS & PASS & yes \\
+Instruct & Corollary 1 (k=48) & PASS & PASS & yes \\
+Instruct & Corollary 2 (k=48) & PASS & PASS & yes \\
+Instruct & Overdispersion & PASS & PASS & yes \\
+Instruct & E4 headline (k=48) & baseline lower & baseline lower & yes \\
+Instruct & E4 headline (k=64) & baseline lower & baseline lower & yes \\
+\bottomrule
+\end{tabular}
+\caption{Ab3: status of each headline check under grader G1 (numeric) and grader G2 (strict string).}
+\label{tab:T7_verifier_ablation_G1_vs_G2}
+\end{table*}

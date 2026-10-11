@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lrrrrrr}
+\toprule
+Distribution & t=2 & t=4 & t=8 & t=16 & t=32 & t=64 \\
+\midrule
+Q-0.5B MATH (E8) & 55 & 580 & 74,000 & 5.6e8 & >1e12 & >1e12 \\
+GSM8K L3-8B-I & <10 & <10 & <10 & <10 & <10 & <10 \\
+GSM8K L3-70B-I & <10 & <10 & <10 & <10 & <10 & <10 \\
+MATH L3-8B-I & 38 & 260 & 11,000 & 5.7e6 & 5.0e10 & >1e12 \\
+MATH L3-70B-I & 23 & 63 & 170 & 260 & 260 & 300 \\
+CC L3-8B-I & 22 & 71 & 560 & 65,000 & 8.0e8 & >1e12 \\
+CC L3-70B-I & 32 & 120 & 1,900 & 6.2e5 & 5.0e11 & >1e12 \\
+MATH G-7B & 47 & 380 & 18,000 & 7.6e6 & 1.8e10 & >1e12 \\
+CC G-7B & 20 & 59 & 390 & 1.3e5 & 2.6e10 & >1e12 \\
+MATH P-12B & 66 & 840 & 3.0e5 & 2.9e10 & >1e12 & >1e12 \\
+\bottomrule
+\end{tabular}
+\caption{E10, what any estimator needs (n = 32 attempts per problem). Columns t = ...: the number of problems m below which no estimator can be within +-0.05 of the population pass@k, k = t n, with probability above 3/4 at every success-rate distribution whose count law lies within squared Hellinger distance h(m) = 2(1 - (3/4)^(1/(2m))) of the real one (Le Cam's two-point method; local minimax lower bound); '>' = still binding at m = 1e12; '<' = not binding at m = 10. These are order-of-magnitude figures: they are read where a nearly flat separation curve crosses 0.1, so they move by orders of magnitude with the accuracy target (T15d) and the draw of problems (T18); the error floor at a fixed m (T19, T20) is the stable reading of the same bound. Each row uses the per-problem rates from 1,024 or about 10,000 attempts as D. Population limits 2E\_n(x^k) for t = 2: 6.5e-09, 4: 5.7e-05, 8: 4.7e-03, 16: 4.7e-02, 32: 1.6e-01, 64: 3.4e-01.}
+\label{tab:T15_problems_needed_any_estimator}
+\end{table*}

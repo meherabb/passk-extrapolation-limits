@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\centering
+\small
+\begin{tabular}{lrrrrrrrr}
+\toprule
+Distribution & bound t=4 & LR t=4 & bound t=8 & LR t=8 & bound t=16 & LR t=16 & LR/bound & DKW/bound \\
+\midrule
+Q-0.5B MATH (E8) & 580 & 2,700 & 74,000 & 3.7e5 & 5.6e8 & 2.8e9 & 4.7-5.1 & 820 \\
+GSM8K L3-8B-I & <10 & 9 & <10 & 9 & <10 & 9 & -- & -- \\
+GSM8K L3-70B-I & <10 & 8 & <10 & 8 & <10 & 8 & -- & -- \\
+MATH L3-8B-I & 260 & 1,200 & 11,000 & 51,000 & 5.7e6 & 3.0e7 & 4.7-5.3 & 780-4,500 \\
+MATH L3-70B-I & 63 & 300 & 170 & 860 & 260 & 1,200 & 4.7-5.0 & 490-930 \\
+CC L3-8B-I & 71 & 240 & 560 & 2,600 & 65,000 & 3.1e5 & 3.4-4.8 & 900-28,000 \\
+CC L3-70B-I & 120 & 490 & 1,900 & 8,900 & 6.2e5 & 3.0e6 & 4.0-4.9 & 970-16,000 \\
+MATH G-7B & 380 & 1,900 & 18,000 & 92,000 & 7.6e6 & 4.1e7 & 4.9-5.4 & 720-4,900 \\
+CC G-7B & 59 & 200 & 390 & 1,900 & 1.3e5 & 6.6e5 & 3.3-5.0 & 760-20,000 \\
+MATH P-12B & 840 & 4,100 & 3.0e5 & 1.4e6 & 2.9e10 & 1.4e11 & 4.7-5.0 & 1,300 \\
+\bottomrule
+\end{tabular}
+\caption{E10, how tight the bound is (n = 32, accuracy +-0.05). 'bound': problems below which no estimator reaches the accuracy (T15). 'LR': problems at which the profile likelihood-ratio interval at level 3/4 (the probability level of the bound; q = chi2\_1(0.75) = 1.32) narrows to width 0.1, in the best case (count histogram equal to the count law; asymptotic calibration; support grid; T21 repeats it on drawn benchmarks). At 95\% the LR numbers grow by 2.90, and for the simultaneous 95\% set (chi2\_32) by 34.9. LR/bound: range of the ratio over t; DKW/bound: the same for the DKW band of T15b at t = 4 and 16 ('--' where either side is censored).}
+\label{tab:T17_upper_vs_lower_bound}
+\end{table*}
