@@ -1,0 +1,17 @@
+Model,Condition,Measured,Reference,Outcome
+Base,Adv1 copy model,rho_break 0.010,rho_detect 0.016,breaks first
+Base,Adv1 block drift,tau_break 5.00e-03,tau_detect 0.017,breaks first
+Base,Adv2 Lemma 2(ii) pair,sep 0.334,band holds both 1.00,PASS
+Base,Adv2 M5 pair (k=512),sep 0.201,min worst-miss 0.60,PASS
+Base,Adv3 selected subset,"n=49, -0.0023",beta(p*) -0.0029,inside envelope
+Base,Adv3 barrier k=60,"-7.96e-04 [-9.65e-04, -6.31e-04]","[-0.0084, 0.014]",inside
+Base,Adv3 barrier k=62,"-6.21e-04 [-8.79e-04, -3.22e-04]","[-0.0087, 0.127]",inside
+Base,Adv3 barrier k=63,"-1.90e-04 [-7.60e-04, 5.75e-04]","[-0.0089, 0.362]",inside
+Instruct,Adv1 copy model,rho_break 0.010,rho_detect 0.017,breaks first
+Instruct,Adv1 block drift,tau_break 5.00e-03,tau_detect 0.017,breaks first
+Instruct,Adv2 Lemma 2(ii) pair,sep 0.334,band holds both 1.00,PASS
+Instruct,Adv2 M5 pair (k=512),sep 0.201,min worst-miss 0.62,PASS
+Instruct,Adv3 selected subset,"n=39, -0.0022",beta(p*) -0.0029,inside envelope
+Instruct,Adv3 barrier k=60,"-5.18e-04 [-6.86e-04, -3.54e-04]","[-0.0084, 0.014]",inside
+Instruct,Adv3 barrier k=62,"2.40e-04 [-3.20e-04, 9.42e-04]","[-0.0087, 0.127]",inside
+Instruct,Adv3 barrier k=63,"0.0019 [3.76e-04, 0.0039]","[-0.0089, 0.362]",inside

@@ -1,0 +1,51 @@
+Check,Model,Value,Threshold,p Holm,Verdict
+Thm 1(A) horizon bracket,--,"28 (n,eps) pairs",floor(n^2/ln(4/eps)) <= K < 8n^2,--,PASS
+"Cor. 3 numerical (16, 2048)",--,sep 0.6688; law diff 2.3e-61,>= 0.339; < 1e-12,--,PASS
+"Cor. 1 bias, k=48",Base,"0.0015 [-0.0104, 0.0127]",overlaps +-0.00601,1.000,PASS
+"Cor. 2 deviation, k=48",Base,0.0269,<= 0.1236+0.0784,--,PASS
+Overdispersion (8 blocks),Base,ratio 0.530,chi2_7 p >= 0.05,1.000,PASS
+Envelope k=40 (above U),Base,-0.00038,"[-0.0036, 5.42e-20]",1.000,PASS
+Envelope k=40 (below L),Base,-0.00038,"[-0.0036, 5.42e-20]",1.000,PASS
+Envelope k=48 (above U),Base,-0.00061,"[-0.0060, 2.33e-10]",1.000,PASS
+Envelope k=48 (below L),Base,-0.00061,"[-0.0060, 2.33e-10]",1.000,PASS
+Envelope k=56 (above U),Base,-0.00076,"[-0.0077, 1.00e-04]",1.000,PASS
+Envelope k=56 (below L),Base,-0.00076,"[-0.0077, 1.00e-04]",1.000,PASS
+Envelope k=60 (above U),Base,-0.00080,"[-0.0084, 1.39e-02]",1.000,PASS
+Envelope k=60 (below L),Base,-0.00080,"[-0.0084, 1.39e-02]",1.000,PASS
+Envelope k=62 (above U),Base,-0.00062,"[-0.0087, 1.27e-01]",1.000,PASS
+Envelope k=62 (below L),Base,-0.00062,"[-0.0087, 1.27e-01]",1.000,PASS
+Envelope k=63 (above U),Base,-0.00019,"[-0.0089, 3.62e-01]",1.000,PASS
+Envelope k=63 (below L),Base,-0.00019,"[-0.0089, 3.62e-01]",1.000,PASS
+"Cor. 1 bias, k=48",Instruct,"0.0024 [-0.0070, 0.0117]",overlaps +-0.00601,1.000,PASS
+"Cor. 2 deviation, k=48",Instruct,0.0219,<= 0.1236+0.0784,--,PASS
+Overdispersion (8 blocks),Instruct,ratio 0.713,chi2_7 p >= 0.05,1.000,PASS
+Envelope k=40 (above U),Instruct,-0.00029,"[-0.0036, 5.42e-20]",1.000,PASS
+Envelope k=40 (below L),Instruct,-0.00029,"[-0.0036, 5.42e-20]",1.000,PASS
+Envelope k=48 (above U),Instruct,-0.00046,"[-0.0060, 2.33e-10]",1.000,PASS
+Envelope k=48 (below L),Instruct,-0.00046,"[-0.0060, 2.33e-10]",1.000,PASS
+Envelope k=56 (above U),Instruct,-0.00056,"[-0.0077, 1.00e-04]",1.000,PASS
+Envelope k=56 (below L),Instruct,-0.00056,"[-0.0077, 1.00e-04]",1.000,PASS
+Envelope k=60 (above U),Instruct,-0.00052,"[-0.0084, 1.39e-02]",1.000,PASS
+Envelope k=60 (below L),Instruct,-0.00052,"[-0.0084, 1.39e-02]",1.000,PASS
+Envelope k=62 (above U),Instruct,+0.00024,"[-0.0087, 1.27e-01]",1.000,PASS
+Envelope k=62 (below L),Instruct,+0.00024,"[-0.0087, 1.27e-01]",1.000,PASS
+Envelope k=63 (above U),Instruct,+0.00193,"[-0.0089, 3.62e-01]",1.000,PASS
+Envelope k=63 (below L),Instruct,+0.00193,"[-0.0089, 3.62e-01]",1.000,PASS
+"Cor. 3 Lemma 6, t=4",Doubl.,0.993,>= 0.228,1.000,PASS
+"Cor. 3 Lemma 6, t=4",LP,0.934,>= 0.228,1.000,PASS
+"Cor. 3 Lemma 6, t=4",Power,1.000,>= 0.228,1.000,PASS
+"Cor. 3 Lemma 6, t=4",BetaBin,0.847,>= 0.228,1.000,PASS
+"Cor. 3 Lemma 6, t=4",NPMLE,0.789,>= 0.228,1.000,PASS
+"Cor. 3 Lemma 6, t=4",Moment,0.862,>= 0.228,1.000,PASS
+"Cor. 3 Lemma 6, t=16",Doubl.,1.000,>= 0.228,1.000,PASS
+"Cor. 3 Lemma 6, t=16",LP,1.000,>= 0.228,1.000,PASS
+"Cor. 3 Lemma 6, t=16",Power,1.000,>= 0.228,1.000,PASS
+"Cor. 3 Lemma 6, t=16",BetaBin,1.000,>= 0.228,1.000,PASS
+"Cor. 3 Lemma 6, t=16",NPMLE,0.833,>= 0.228,1.000,PASS
+"Cor. 3 Lemma 6, t=16",Moment,0.658,>= 0.228,1.000,PASS
+"Cor. 3 Lemma 6, t=64",Doubl.,1.000,>= 0.228,1.000,PASS
+"Cor. 3 Lemma 6, t=64",LP,1.000,>= 0.228,1.000,PASS
+"Cor. 3 Lemma 6, t=64",Power,1.000,>= 0.228,1.000,PASS
+"Cor. 3 Lemma 6, t=64",BetaBin,1.000,>= 0.228,1.000,PASS
+"Cor. 3 Lemma 6, t=64",NPMLE,0.854,>= 0.228,1.000,PASS
+"Cor. 3 Lemma 6, t=64",Moment,0.880,>= 0.228,1.000,PASS

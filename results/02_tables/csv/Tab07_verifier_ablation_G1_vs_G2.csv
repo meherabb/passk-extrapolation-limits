@@ -1,0 +1,13 @@
+Model,Check,G1 (numeric),G2 (strict),Agree
+Base,"A1 (3 tests, Holm)",PASS,PASS,yes
+Base,Corollary 1 (k=48),PASS,PASS,yes
+Base,Corollary 2 (k=48),PASS,PASS,yes
+Base,Overdispersion,PASS,PASS,yes
+Base,E4 headline (k=48),baseline lower,baseline lower,yes
+Base,E4 headline (k=64),baseline lower,baseline lower,yes
+Instruct,"A1 (3 tests, Holm)",PASS,PASS,yes
+Instruct,Corollary 1 (k=48),PASS,PASS,yes
+Instruct,Corollary 2 (k=48),PASS,PASS,yes
+Instruct,Overdispersion,PASS,PASS,yes
+Instruct,E4 headline (k=48),baseline lower,baseline lower,yes
+Instruct,E4 headline (k=64),baseline lower,baseline lower,yes
