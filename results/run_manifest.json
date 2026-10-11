@@ -1,0 +1,1357 @@
+{
+  "title": "A Quadratic Horizon and a Doubling Barrier: Distribution-Free Limits on Extrapolating pass@k from Repeated Samples",
+  "revision": 7,
+  "env_name": "kaggle",
+  "env_info": {
+    "timestamp": "2026-10-09T20:53:10",
+    "env_name": "kaggle",
+    "python": "3.13.15",
+    "platform": "Linux-6.18.48+-x86_64-with-glibc2.39",
+    "numpy": "2.1.3",
+    "scipy": "1.16.3",
+    "pandas": "2.3.3",
+    "matplotlib": "3.10.0",
+    "mpmath": "1.3.0",
+    "torch": "2.11.0+cpu",
+    "cuda": null,
+    "gpu": null,
+    "visible_gpus": 0,
+    "transformers": null,
+    "dry_run": false,
+    "smoke": false,
+    "session_mode": "analyze"
+  },
+  "package_versions": {
+    "numpy": "2.1.3",
+    "scipy": "1.16.3",
+    "pandas": "2.3.3",
+    "matplotlib": "3.10.0",
+    "mpmath": "1.3.0"
+  },
+  "dry_run": false,
+  "smoke": false,
+  "session_mode": "analyze",
+  "config": {
+    "SEED": 20261005,
+    "MODELS": {
+      "base": "Qwen/Qwen2.5-0.5B",
+      "instruct": "Qwen/Qwen2.5-0.5B-Instruct",
+      "base15": "Qwen/Qwen2.5-1.5B",
+      "rl15": "hkust-nlp/Qwen-2.5-1.5B-SimpleRL-Zoo"
+    },
+    "STREAMS": {
+      "gsm8k:base": {
+        "task": "gsm8k",
+        "model": "base",
+        "prompt": "fewshot",
+        "max_new": 256,
+        "tier": 1,
+        "seed_index": 1,
+        "code": "G-B0.5",
+        "hf": "Qwen/Qwen2.5-0.5B"
+      },
+      "gsm8k:instruct": {
+        "task": "gsm8k",
+        "model": "instruct",
+        "prompt": "chat",
+        "max_new": 512,
+        "tier": 1,
+        "seed_index": 2,
+        "code": "G-I0.5",
+        "hf": "Qwen/Qwen2.5-0.5B-Instruct"
+      },
+      "gsm8k:base15": {
+        "task": "gsm8k",
+        "model": "base15",
+        "prompt": "rl",
+        "max_new": 512,
+        "tier": 2,
+        "seed_index": 3,
+        "code": "G-B1.5",
+        "hf": "Qwen/Qwen2.5-1.5B"
+      },
+      "gsm8k:rl15": {
+        "task": "gsm8k",
+        "model": "rl15",
+        "prompt": "rl",
+        "max_new": 512,
+        "tier": 2,
+        "seed_index": 4,
+        "code": "G-RL1.5",
+        "hf": "hkust-nlp/Qwen-2.5-1.5B-SimpleRL-Zoo"
+      },
+      "math500:base": {
+        "task": "math500",
+        "model": "base",
+        "prompt": "fewshot",
+        "max_new": 512,
+        "tier": 3,
+        "seed_index": 5,
+        "code": "M-B0.5",
+        "hf": "Qwen/Qwen2.5-0.5B"
+      },
+      "math500:instruct": {
+        "task": "math500",
+        "model": "instruct",
+        "prompt": "chat",
+        "max_new": 512,
+        "tier": 3,
+        "seed_index": 6,
+        "code": "M-I0.5",
+        "hf": "Qwen/Qwen2.5-0.5B-Instruct"
+      },
+      "math500:base_x2": {
+        "task": "math500",
+        "model": "base",
+        "prompt": "fewshot",
+        "max_new": 512,
+        "tier": 4,
+        "seed_index": 7,
+        "code": "M-B0.5x2",
+        "group": "math500:base",
+        "hf": "Qwen/Qwen2.5-0.5B"
+      },
+      "math500:base_x3": {
+        "task": "math500",
+        "model": "base",
+        "prompt": "fewshot",
+        "max_new": 512,
+        "tier": 4,
+        "seed_index": 8,
+        "code": "M-B0.5x3",
+        "group": "math500:base",
+        "hf": "Qwen/Qwen2.5-0.5B"
+      },
+      "math500:base_x4": {
+        "task": "math500",
+        "model": "base",
+        "prompt": "fewshot",
+        "max_new": 512,
+        "tier": 4,
+        "seed_index": 9,
+        "code": "M-B0.5x4",
+        "group": "math500:base",
+        "hf": "Qwen/Qwen2.5-0.5B"
+      },
+      "math500:instruct1k": {
+        "task": "math500",
+        "model": "instruct",
+        "prompt": "chat",
+        "max_new": 1024,
+        "tier": 5,
+        "seed_index": 10,
+        "code": "M-I0.5L",
+        "hf": "Qwen/Qwen2.5-0.5B-Instruct"
+      }
+    },
+    "M_PROBLEMS": 500,
+    "M_TARGET": 300,
+    "M_MIN_ANALYSIS": 50,
+    "N_ATTEMPTS": 256,
+    "N_BLOCK": 32,
+    "N_BLOCKS": 8,
+    "TEMPERATURE": 0.7,
+    "MAX_NEW_TOKENS": 256,
+    "MAX_NEW_TOKENS_CHAT": 512,
+    "SAMPLING_BUDGET_MIN": null,
+    "SESSION_LIMIT_MIN": 690.0,
+    "ANALYSIS_RESERVE_MIN": 150.0,
+    "ANALYSIS_MIN_NEEDED": 110.0,
+    "CHUNK_PROBLEMS": 100,
+    "AUDIT_TEXT_FRACTION": 0.02,
+    "STOP_CHECK_EVERY": 8,
+    "STOP_WINDOW_TOKENS": 48,
+    "NAN_CHECK_EVERY": 16,
+    "COMPACT_KEEP": 0.75,
+    "RL_PROBE_PROBLEMS": 16,
+    "RL_PROBE_ATTEMPTS": 16,
+    "DELTA": 0.05,
+    "B_BOOT": 10000,
+    "B_REFIT": 2000,
+    "N_PERM": 10000,
+    "R_LEMMA6": 2000,
+    "R_COV": 200,
+    "R_POWER": 200,
+    "R_ADV2": 500,
+    "R_ADV2_BAND": 40,
+    "M_SEMI": 500,
+    "B_E6": 400,
+    "LP_G_MAIN": 10000,
+    "LP_G_SWEEP": 2500,
+    "LP_G_E7": 2000,
+    "PI_G": 1500,
+    "CERT_FINE": 100000,
+    "LP_T_MAX": 2.0,
+    "E2_KS": [
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      52,
+      53,
+      54,
+      55,
+      56,
+      57,
+      58,
+      59,
+      60,
+      61,
+      62,
+      63
+    ],
+    "E4_KS": [
+      40,
+      48,
+      56,
+      64,
+      96,
+      128,
+      192,
+      224
+    ],
+    "E5_NS": [
+      8,
+      16,
+      32,
+      64,
+      128
+    ],
+    "LEMMA6_TS": [
+      4,
+      16,
+      64
+    ],
+    "E6_KS": [
+      16,
+      32,
+      48,
+      64,
+      128,
+      256,
+      512,
+      2048,
+      10000
+    ],
+    "E7_NS": [
+      16,
+      32,
+      64
+    ],
+    "E7_MS": [
+      164,
+      300,
+      500,
+      1319,
+      10000
+    ],
+    "E7_TS": [
+      1.125,
+      1.25,
+      1.5,
+      1.75,
+      2.0,
+      2.5,
+      3.0,
+      4.0,
+      6.0
+    ],
+    "REALISTIC_M_MAX": 1319,
+    "M3_METHOD": "dkw+cp",
+    "E8_GROUP": [
+      "math500:base",
+      "math500:base_x2",
+      "math500:base_x3",
+      "math500:base_x4"
+    ],
+    "E8_NS": [
+      32,
+      128
+    ],
+    "E8_KS": [
+      48,
+      64,
+      96,
+      128,
+      192,
+      256,
+      384,
+      512,
+      768,
+      992
+    ],
+    "SUPERSEDED": {
+      "math500:instruct": "math500:instruct1k"
+    },
+    "E7_TS_LB": [
+      1.125,
+      1.25,
+      1.5,
+      1.75,
+      2.0,
+      2.5,
+      3.0,
+      4.0,
+      6.0,
+      8.0,
+      12.0,
+      16.0,
+      24.0,
+      32.0,
+      48.0,
+      64.0,
+      96.0,
+      128.0,
+      192.0,
+      256.0,
+      384.0,
+      512.0,
+      768.0,
+      1024.0
+    ],
+    "MB_REPO": "ScalingIntelligence/monkey_business",
+    "MB_CONFIGS": [
+      "GSM8K_Llama-3-8B-Instruct",
+      "GSM8K_Llama-3-70B-Instruct",
+      "MATH_Llama-3-8B-Instruct",
+      "MATH_Llama-3-70B-Instruct",
+      "CodeContests_Llama-3-8B-Instruct",
+      "CodeContests_Llama-3-70B-Instruct",
+      "MATH_Gemma-7B",
+      "CodeContests_Gemma-7B",
+      "MATH_Pythia-12B"
+    ],
+    "MB_NS": [
+      32,
+      128
+    ],
+    "MB_KS": [
+      48,
+      64,
+      96,
+      128,
+      192,
+      256,
+      512,
+      1024,
+      2048,
+      4096,
+      8192
+    ],
+    "MB_A1_ATTEMPTS": 256,
+    "E10_NS": [
+      16,
+      32,
+      64
+    ],
+    "E10_TS": [
+      2,
+      4,
+      16,
+      64
+    ],
+    "E10_ETAS": [
+      0.1,
+      0.05,
+      0.03,
+      0.01,
+      0.003,
+      0.001,
+      0.0001,
+      1e-05,
+      1e-06
+    ],
+    "E10_G": 600,
+    "C5_FAMILIES": [
+      "Power law",
+      "Beta-binomial",
+      "NPMLE"
+    ],
+    "BT_FIT_FRACS": [
+      0.5,
+      0.25
+    ],
+    "C5_RATIO": 2.0,
+    "C5_ABS": 0.01,
+    "C5_INFORMATIVE": 0.02,
+    "E10H_N": 32,
+    "E10H_TS": [
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "E10H_FIXED_K": [
+      128,
+      512,
+      2048
+    ],
+    "E10H_FIXED_NS": [
+      16,
+      64
+    ],
+    "E10H_ACC": 0.05,
+    "E10H_G": 200,
+    "E10H_PER_DECADE": 3,
+    "E10H_M_RANGE": [
+      10.0,
+      1000000000000.0
+    ],
+    "C5E_REF_FOLD_MAX": 2.0,
+    "C5E_BOOT": 200,
+    "E10H_ACC_WIDE": 0.1,
+    "E10_LR_TS": [
+      4,
+      8,
+      16
+    ],
+    "E10_BOOT_DISTS": [
+      "MATH L3-8B-I",
+      "CC L3-70B-I",
+      "MATH L3-70B-I"
+    ],
+    "E10_BOOT_B": 20,
+    "E10_BOOT_TS": [
+      4,
+      16
+    ],
+    "E10_FLOOR_MS": [
+      500,
+      1319
+    ],
+    "E10_LRSIM_R": 100,
+    "E10_LRSIM_M_MAX": 1000000000.0,
+    "E10_LRSIM_DISTS": null,
+    "E10_BRACKET_R": 100
+  },
+  "seeds_used": {
+    "global": 20261005,
+    "bootstrap": 20262005,
+    "sampling": "SEED + 100003 * stream seed_index + problem index",
+    "a1_tests": [
+      20261036,
+      20261037
+    ],
+    "split_half": [
+      20261046,
+      20261047
+    ],
+    "adv": [
+      20261066,
+      20261067,
+      20261096,
+      20261098
+    ]
+  },
+  "started": "2026-10-09T20:53:10",
+  "finished": "2026-10-09T21:28:34",
+  "runtime_minutes": 35.4,
+  "sampling_progress": {
+    "gsm8k:base": 300,
+    "gsm8k:instruct": 300,
+    "gsm8k:base15": 300,
+    "gsm8k:rl15": 300,
+    "math500:base": 300,
+    "math500:instruct": 300,
+    "math500:base_x2": 300,
+    "math500:base_x3": 300,
+    "math500:base_x4": 300,
+    "math500:instruct1k": 300
+  },
+  "sampling_complete": true,
+  "analysis_ran": true,
+  "rl_template": {
+    "name": "abel",
+    "decided_by": "probe on GSM8K train problems",
+    "probe_accuracy": {
+      "qwen-boxed": 0.515625,
+      "abel": 0.83203125
+    }
+  },
+  "resume_log": [
+    {
+      "source": "source 1: attached input dataset (folder)",
+      "sample_records": 3000,
+      "files": 112
+    }
+  ],
+  "sampling_log": {
+    "streams": {},
+    "models": {},
+    "decisions": []
+  },
+  "m_effective_main_pair": 300,
+  "dataset_sources": {
+    "gsm8k": "Hugging Face Hub copy",
+    "math500": "Hugging Face Hub copy"
+  },
+  "gqa_decode": {
+    "available": true,
+    "on": false,
+    "impl": "gqa_decode",
+    "note": "",
+    "hits": 0,
+    "misses": 0
+  },
+  "checkpoints": [
+    "a1_real_g1_1e894fd9be.pkl",
+    "ab1_lp_design.pkl",
+    "ab2_1e894fd9be.pkl",
+    "ab3_G2_1e894fd9be_7.pkl",
+    "ab4_1e894fd9be.pkl",
+    "ab4_1e894fd9be_dkwcp.pkl",
+    "adv1_1e894fd9be.pkl",
+    "adv2_1e894fd9be_6.pkl",
+    "adv2_1e894fd9be_6_dkwcp.pkl",
+    "adv3_1e894fd9be.pkl",
+    "c5e_356037b5_200_0.5_0.25.pkl",
+    "e10_eta_widths_5a8dc701b0.pkl",
+    "e10bk_0f7223cb716e.pkl",
+    "e10bk_16e2b86d2fa0.pkl",
+    "e10bk_281ebcf0854f.pkl",
+    "e10bk_2c0eceb23fcf.pkl",
+    "e10bk_3e188fd85770.pkl",
+    "e10bk_5dd3659373ab.pkl",
+    "e10bk_616a627a1074.pkl",
+    "e10bk_65a86460b42b.pkl",
+    "e10bk_a0c2b7b8f2f0.pkl",
+    "e10bk_c0376dd8cb7c.pkl",
+    "e10bs_06eb24bfec43.pkl",
+    "e10bs_91389f96b342.pkl",
+    "e10bs_d95c51575375.pkl",
+    "e10f_0a7b4cdeaf61.pkl",
+    "e10f_2c784fd02dbc.pkl",
+    "e10f_389361557a01.pkl",
+    "e10f_7a051bbd71d2.pkl",
+    "e10f_8013b0f0a743.pkl",
+    "e10f_9ebd1089c0dd.pkl",
+    "e10f_afd3d9a7afac.pkl",
+    "e10f_b4b60625a9fa.pkl",
+    "e10f_c6b49ab86160.pkl",
+    "e10f_cc8fc760434d.pkl",
+    "e10fb_29c8e92fc7b8.pkl",
+    "e10fb_c1996406eb78.pkl",
+    "e10fb_cc5cd3f60834.pkl",
+    "e10h_041dcf8e8350.pkl",
+    "e10h_078df8afdff9.pkl",
+    "e10h_0a48d87b35e8.pkl",
+    "e10h_0e8c27e0aa02.pkl",
+    "e10h_1b4e7029c87f.pkl",
+    "e10h_1fcce56344f4.pkl",
+    "e10h_29fd2c1ed689.pkl",
+    "e10h_2a4f87ad6896.pkl",
+    "e10h_31f6e3da0e8f.pkl",
+    "e10h_3a2467ec721c.pkl",
+    "e10h_4103f30d2c24.pkl",
+    "e10h_44e5ad4693d4.pkl",
+    "e10h_5bc57dbcfdd8.pkl",
+    "e10h_5d280ad5a1f8.pkl",
+    "e10h_5e22daf1be45.pkl",
+    "e10h_62c25982638f.pkl",
+    "e10h_65eebaf5db16.pkl",
+    "e10h_6a2596d27266.pkl",
+    "e10h_8c7595fea598.pkl",
+    "e10h_90cd31b5e4ea.pkl",
+    "e10h_96a3d792c640.pkl",
+    "e10h_991f790dc907.pkl",
+    "e10h_a1e2e431a54d.pkl",
+    "e10h_a582d69e1e8a.pkl",
+    "e10h_aec2464af025.pkl",
+    "e10h_bbe193115cc4.pkl",
+    "e10h_bf7bdb8b9d18.pkl",
+    "e10h_e135f10efeb8.pkl",
+    "e10h_e4c62303c5d3.pkl",
+    "e10h_f278d782b0a7.pkl",
+    "e10lr_123d458e782b.pkl",
+    "e10lr_3e2b2177c5de.pkl",
+    "e10lr_557e23f6d13e.pkl",
+    "e10lr_721f1d83b1f5.pkl",
+    "e10lr_79d0ce705da1.pkl",
+    "e10lr_86ef375d4391.pkl",
+    "e10lr_893b309e3871.pkl",
+    "e10lr_99d78e0d8cec.pkl",
+    "e10lr_adbc0dbe15af.pkl",
+    "e10lr_bf2609a2bc55.pkl",
+    "e10ls_0a31c072b760.pkl",
+    "e10ls_1ce2206d6b88.pkl",
+    "e10ls_27cf33799ec4.pkl",
+    "e10ls_2d2075fc10ec.pkl",
+    "e10ls_801c8c84247b.pkl",
+    "e10ls_ad449e1ee1b8.pkl",
+    "e10ls_d71f70b84acb.pkl",
+    "e10ls_e693ba6a4b60.pkl",
+    "e1_cache.pkl",
+    "e1_numerics.pkl",
+    "e2_g1_1e894fd9be.pkl",
+    "e3_horizons.pkl",
+    "e3_lemma6_v2_6.pkl",
+    "e3_nmin.pkl",
+    "e3_sandwich.pkl",
+    "e4_1e894fd9be_7.pkl",
+    "e4_1e894fd9be_7_dkwcp.pkl",
+    "e4_bands_1e894fd9be_7.pkl",
+    "e4_bands_1e894fd9be_7_dkwcp.pkl",
+    "e4_coverage_1e894fd9be.pkl",
+    "e4_coverage_1e894fd9be_dkwcp.pkl",
+    "e5_d649bc4819_4.pkl",
+    "e5v3_86f74a0d0d_4_dkwcp.pkl",
+    "e5v3_d649bc4819_4_dkwcp.pkl",
+    "e6_gsm8k__base15_4c458bfeba_4.pkl",
+    "e6_gsm8k__base_0874ae4d6b_4.pkl",
+    "e6_gsm8k__instruct_1e8a120f91_4.pkl",
+    "e6_gsm8k__rl15_799a28bc0d_4.pkl",
+    "e6_math500__base_ab6f34eb85_4.pkl",
+    "e6_math500__instruct_c836541bc4_4.pkl",
+    "e6v3_gsm8k__base15_4c458bfeba_4_dkwcp.pkl",
+    "e6v3_gsm8k__base_0874ae4d6b_4_dkwcp.pkl",
+    "e6v3_gsm8k__instruct_1e8a120f91_4_dkwcp.pkl",
+    "e6v3_gsm8k__rl15_799a28bc0d_4_dkwcp.pkl",
+    "e6v3_math500__base_ab6f34eb85_4_dkwcp.pkl",
+    "e6v3_math500__instruct1k_b6e4e9deac_4_dkwcp.pkl",
+    "e6v3_math500__instruct_c836541bc4_4_dkwcp.pkl",
+    "e7_certified_horizon_11b6a625.pkl",
+    "e7_lower_bound_scan_6ece7805.pkl",
+    "e8_83f0ae14ea_dkwcp_4.pkl",
+    "e8x_83f0ae14ea_4_bt0.5_0.25.pkl",
+    "e9_CodeContests_Gemma-7B_c9c65bbefa_4_dkwcp_bt0.5_0.25.pkl",
+    "e9_CodeContests_Llama-3-70B-Instruct_7e3f122e22_4_dkwcp_bt0.5_0.25.pkl",
+    "e9_CodeContests_Llama-3-8B-Instruct_b6542596a9_4_dkwcp_bt0.5_0.25.pkl",
+    "e9_GSM8K_Llama-3-70B-Instruct_16c4f53754_4_dkwcp_bt0.5_0.25.pkl",
+    "e9_GSM8K_Llama-3-8B-Instruct_eb06de675f_4_dkwcp_bt0.5_0.25.pkl",
+    "e9_MATH_Gemma-7B_531336c3da_4_dkwcp_bt0.5_0.25.pkl",
+    "e9_MATH_Llama-3-70B-Instruct_f5feb7ae0c_4_dkwcp_bt0.5_0.25.pkl",
+    "e9_MATH_Llama-3-8B-Instruct_cb610939d4_4_dkwcp_bt0.5_0.25.pkl",
+    "e9_MATH_Pythia-12B_0e1106f89c_4_dkwcp_bt0.5_0.25.pkl",
+    "gsm8k_subset.pkl",
+    "lp_cache.pkl",
+    "m5_cache.pkl",
+    "math500_order.pkl",
+    "monkey_business",
+    "profile_sampler.json",
+    "rl_template.json",
+    "samples"
+  ],
+  "checkpoint_status": {
+    "gsm8k_subset": {
+      "status": "resumed"
+    },
+    "math500_order": {
+      "status": "resumed"
+    },
+    "a1_real_g1_1e894fd9be": {
+      "status": "resumed"
+    },
+    "e1_numerics": {
+      "status": "resumed"
+    },
+    "e2_g1_1e894fd9be": {
+      "status": "resumed"
+    },
+    "e3_lemma6_v2_6": {
+      "status": "resumed"
+    },
+    "e3_sandwich": {
+      "status": "resumed"
+    },
+    "e3_horizons": {
+      "status": "resumed"
+    },
+    "e3_nmin": {
+      "status": "resumed"
+    },
+    "e4_1e894fd9be_7_dkwcp": {
+      "status": "resumed"
+    },
+    "e4_bands_1e894fd9be_7_dkwcp": {
+      "status": "resumed"
+    },
+    "e4_coverage_1e894fd9be_dkwcp": {
+      "status": "resumed"
+    },
+    "e5v3_d649bc4819_4_dkwcp": {
+      "status": "resumed"
+    },
+    "e5v3_86f74a0d0d_4_dkwcp": {
+      "status": "resumed"
+    },
+    "ab1_lp_design": {
+      "status": "resumed"
+    },
+    "ab2_1e894fd9be": {
+      "status": "resumed"
+    },
+    "e6v3_gsm8k__base_0874ae4d6b_4_dkwcp": {
+      "status": "resumed"
+    },
+    "e6v3_gsm8k__instruct_1e8a120f91_4_dkwcp": {
+      "status": "resumed"
+    },
+    "e6v3_gsm8k__base15_4c458bfeba_4_dkwcp": {
+      "status": "resumed"
+    },
+    "e6v3_gsm8k__rl15_799a28bc0d_4_dkwcp": {
+      "status": "resumed"
+    },
+    "e6v3_math500__base_ab6f34eb85_4_dkwcp": {
+      "status": "resumed"
+    },
+    "e6v3_math500__instruct_c836541bc4_4_dkwcp": {
+      "status": "resumed"
+    },
+    "e6v3_math500__instruct1k_b6e4e9deac_4_dkwcp": {
+      "status": "resumed"
+    },
+    "e7_certified_horizon_11b6a625": {
+      "status": "resumed"
+    },
+    "e7_lower_bound_scan_6ece7805": {
+      "status": "resumed"
+    },
+    "ab4_1e894fd9be_dkwcp": {
+      "status": "resumed"
+    },
+    "e8_83f0ae14ea_dkwcp_4": {
+      "status": "resumed"
+    },
+    "e8x_83f0ae14ea_4_bt0.5_0.25": {
+      "status": "resumed"
+    },
+    "e9_GSM8K_Llama-3-8B-Instruct_eb06de675f_4_dkwcp_bt0.5_0.25": {
+      "status": "resumed"
+    },
+    "e9_GSM8K_Llama-3-70B-Instruct_16c4f53754_4_dkwcp_bt0.5_0.25": {
+      "status": "resumed"
+    },
+    "e9_MATH_Llama-3-8B-Instruct_cb610939d4_4_dkwcp_bt0.5_0.25": {
+      "status": "resumed"
+    },
+    "e9_MATH_Llama-3-70B-Instruct_f5feb7ae0c_4_dkwcp_bt0.5_0.25": {
+      "status": "resumed"
+    },
+    "e9_CodeContests_Llama-3-8B-Instruct_b6542596a9_4_dkwcp_bt0.5_0.25": {
+      "status": "resumed"
+    },
+    "e9_CodeContests_Llama-3-70B-Instruct_7e3f122e22_4_dkwcp_bt0.5_0.25": {
+      "status": "resumed"
+    },
+    "e9_MATH_Gemma-7B_531336c3da_4_dkwcp_bt0.5_0.25": {
+      "status": "resumed"
+    },
+    "e9_CodeContests_Gemma-7B_c9c65bbefa_4_dkwcp_bt0.5_0.25": {
+      "status": "resumed"
+    },
+    "e9_MATH_Pythia-12B_0e1106f89c_4_dkwcp_bt0.5_0.25": {
+      "status": "resumed"
+    },
+    "e10_eta_widths_5a8dc701b0": {
+      "status": "resumed"
+    },
+    "e10h_aec2464af025": {
+      "status": "resumed"
+    },
+    "e10h_2a4f87ad6896": {
+      "status": "resumed"
+    },
+    "e10h_e135f10efeb8": {
+      "status": "resumed"
+    },
+    "e10h_6a2596d27266": {
+      "status": "resumed"
+    },
+    "e10h_3a2467ec721c": {
+      "status": "resumed"
+    },
+    "e10h_5bc57dbcfdd8": {
+      "status": "resumed"
+    },
+    "e10h_62c25982638f": {
+      "status": "resumed"
+    },
+    "e10h_0a48d87b35e8": {
+      "status": "resumed"
+    },
+    "e10h_44e5ad4693d4": {
+      "status": "resumed"
+    },
+    "e10h_90cd31b5e4ea": {
+      "status": "resumed"
+    },
+    "e10h_991f790dc907": {
+      "status": "resumed"
+    },
+    "e10h_5d280ad5a1f8": {
+      "status": "resumed"
+    },
+    "e10h_a1e2e431a54d": {
+      "status": "resumed"
+    },
+    "e10h_041dcf8e8350": {
+      "status": "resumed"
+    },
+    "e10h_1b4e7029c87f": {
+      "status": "resumed"
+    },
+    "e10h_8c7595fea598": {
+      "status": "resumed"
+    },
+    "e10h_1fcce56344f4": {
+      "status": "resumed"
+    },
+    "e10h_bf7bdb8b9d18": {
+      "status": "resumed"
+    },
+    "e10h_e4c62303c5d3": {
+      "status": "resumed"
+    },
+    "e10h_96a3d792c640": {
+      "status": "resumed"
+    },
+    "e10h_65eebaf5db16": {
+      "status": "resumed"
+    },
+    "e10h_bbe193115cc4": {
+      "status": "resumed"
+    },
+    "e10h_4103f30d2c24": {
+      "status": "resumed"
+    },
+    "e10h_31f6e3da0e8f": {
+      "status": "resumed"
+    },
+    "e10h_f278d782b0a7": {
+      "status": "resumed"
+    },
+    "e10h_a582d69e1e8a": {
+      "status": "resumed"
+    },
+    "e10h_5e22daf1be45": {
+      "status": "resumed"
+    },
+    "e10h_29fd2c1ed689": {
+      "status": "resumed"
+    },
+    "e10h_0e8c27e0aa02": {
+      "status": "resumed"
+    },
+    "e10h_078df8afdff9": {
+      "status": "resumed"
+    },
+    "e10lr_79d0ce705da1": {
+      "status": "resumed"
+    },
+    "e10lr_123d458e782b": {
+      "status": "resumed"
+    },
+    "e10lr_557e23f6d13e": {
+      "status": "resumed"
+    },
+    "e10lr_721f1d83b1f5": {
+      "status": "resumed"
+    },
+    "e10lr_adbc0dbe15af": {
+      "status": "resumed"
+    },
+    "e10lr_3e2b2177c5de": {
+      "status": "resumed"
+    },
+    "e10lr_86ef375d4391": {
+      "status": "resumed"
+    },
+    "e10lr_893b309e3871": {
+      "status": "resumed"
+    },
+    "e10lr_99d78e0d8cec": {
+      "status": "resumed"
+    },
+    "e10lr_bf2609a2bc55": {
+      "status": "resumed"
+    },
+    "e10bs_d95c51575375": {
+      "status": "resumed"
+    },
+    "e10bs_06eb24bfec43": {
+      "status": "resumed"
+    },
+    "e10bs_91389f96b342": {
+      "status": "resumed"
+    },
+    "e10f_9ebd1089c0dd": {
+      "status": "computed",
+      "seconds": 17.8
+    },
+    "e10f_c6b49ab86160": {
+      "status": "computed",
+      "seconds": 15.2
+    },
+    "e10f_cc8fc760434d": {
+      "status": "computed",
+      "seconds": 14.0
+    },
+    "e10f_8013b0f0a743": {
+      "status": "computed",
+      "seconds": 18.4
+    },
+    "e10f_2c784fd02dbc": {
+      "status": "computed",
+      "seconds": 18.5
+    },
+    "e10f_0a7b4cdeaf61": {
+      "status": "computed",
+      "seconds": 14.4
+    },
+    "e10f_b4b60625a9fa": {
+      "status": "computed",
+      "seconds": 20.6
+    },
+    "e10f_389361557a01": {
+      "status": "computed",
+      "seconds": 17.1
+    },
+    "e10f_7a051bbd71d2": {
+      "status": "computed",
+      "seconds": 8.7
+    },
+    "e10f_afd3d9a7afac": {
+      "status": "computed",
+      "seconds": 8.1
+    },
+    "e10fb_c1996406eb78": {
+      "status": "computed",
+      "seconds": 100.3
+    },
+    "e10fb_29c8e92fc7b8": {
+      "status": "computed",
+      "seconds": 105.7
+    },
+    "e10fb_cc5cd3f60834": {
+      "status": "computed",
+      "seconds": 102.7
+    },
+    "e10ls_d71f70b84acb": {
+      "status": "computed",
+      "seconds": 73.4
+    },
+    "e10ls_0a31c072b760": {
+      "status": "computed",
+      "seconds": 109.7
+    },
+    "e10ls_2d2075fc10ec": {
+      "status": "computed",
+      "seconds": 97.1
+    },
+    "e10ls_801c8c84247b": {
+      "status": "computed",
+      "seconds": 72.4
+    },
+    "e10ls_e693ba6a4b60": {
+      "status": "computed",
+      "seconds": 91.9
+    },
+    "e10ls_1ce2206d6b88": {
+      "status": "computed",
+      "seconds": 112.6
+    },
+    "e10ls_ad449e1ee1b8": {
+      "status": "computed",
+      "seconds": 55.0
+    },
+    "e10ls_27cf33799ec4": {
+      "status": "computed",
+      "seconds": 39.0
+    },
+    "e10bk_2c0eceb23fcf": {
+      "status": "computed",
+      "seconds": 106.5
+    },
+    "e10bk_3e188fd85770": {
+      "status": "computed",
+      "seconds": 96.7
+    },
+    "e10bk_616a627a1074": {
+      "status": "computed",
+      "seconds": 76.6
+    },
+    "e10bk_281ebcf0854f": {
+      "status": "computed",
+      "seconds": 101.3
+    },
+    "e10bk_c0376dd8cb7c": {
+      "status": "computed",
+      "seconds": 97.1
+    },
+    "e10bk_16e2b86d2fa0": {
+      "status": "computed",
+      "seconds": 71.4
+    },
+    "e10bk_a0c2b7b8f2f0": {
+      "status": "computed",
+      "seconds": 91.3
+    },
+    "e10bk_65a86460b42b": {
+      "status": "computed",
+      "seconds": 99.8
+    },
+    "e10bk_5dd3659373ab": {
+      "status": "computed",
+      "seconds": 49.0
+    },
+    "e10bk_0f7223cb716e": {
+      "status": "computed",
+      "seconds": 46.9
+    },
+    "c5e_356037b5_200_0.5_0.25": {
+      "status": "resumed"
+    },
+    "adv1_1e894fd9be": {
+      "status": "resumed"
+    },
+    "adv2_1e894fd9be_6_dkwcp": {
+      "status": "resumed"
+    },
+    "adv3_1e894fd9be": {
+      "status": "resumed"
+    },
+    "ab3_G2_1e894fd9be_7": {
+      "status": "resumed"
+    }
+  },
+  "notes": [],
+  "determinism_self_check": true,
+  "mm_check": {
+    "max_abs_diff_vs_chen_k<=16": 0.00043684392204823563,
+    "kept": true
+  },
+  "verdicts": {
+    "A1 (Base)": "PASS",
+    "A2 (Base)": "PASS",
+    "A3 (Base)": "PASS",
+    "A1 (Instruct)": "PASS",
+    "A2 (Instruct)": "PASS",
+    "A3 (Instruct)": "FAIL (p_i read as verifier-acceptance probability)",
+    "Theorem 1(A) horizon bracket": "PASS",
+    "Corollary 3 (numerical)": "PASS",
+    "Corollary 1 (Base)": "PASS",
+    "Corollary 2 (Base)": "PASS",
+    "Overdispersion (Base)": "PASS",
+    "Corollary 1 (Instruct)": "PASS",
+    "Corollary 2 (Instruct)": "PASS",
+    "Overdispersion (Instruct)": "PASS",
+    "Corollary 3 (data-facing, Lemma 6)": "PASS",
+    "PI-band coverage (semi-synthetic)": "PASS",
+    "C4 reversal beyond 2n not identified (G1)": "PASS: not identified from n = [8, 16, 32]",
+    "C4 reversal beyond 2n not identified (G2)": "PASS: not identified from n = [8, 16, 32]",
+    "Ab1: lambda=0 certificate exceeds lambda*": "YES",
+    "Ab1: certificate settles across G": "YES",
+    "Ab2: contrast inside envelope (all kernels)": "PASS",
+    "C2 wide bands beyond 2n (claim streams)": "PASS",
+    "C3 family-driven forecasts": "FAIL",
+    "C1 certified horizon near 2n at realistic m": "PASS",
+    "C1 scope: two-point bound binds at t (eps=0.1, realistic m)": "11.2 to 34 (LP certifies up to 2.5)",
+    "Ab4: the band used does not widen with more attempts": "PASS",
+    "C5a family choice changes accuracy (E8)": "PASS",
+    "C5b band covers ground truth (E8)": "PASS",
+    "C5c backtest (E8, exploratory)": "FAILS (picked far error 0.0330 vs best 0.0075)",
+    "C5d family flip (E8, exploratory)": "FLIP (best at k=128: Power law; at k=992: Beta-bin.)",
+    "C5a without moment matching (E8, descriptive)": "family index 1.7 at k=992 (pre-registered rule needs 3); error gap among the three standard families 0.062",
+    "C5c backtest fails to find the far-k family (Monkey Business, pre-registered)": "NOT SUPPORTED (2/6 informative streams)",
+    "C5d best family flips between 4n and the far k (Monkey Business, pre-registered)": "NOT SUPPORTED (0/6 informative streams)",
+    "C5b band covers ground truth (Monkey Business, pre-registered)": "PASS (9/9 configurations)",
+    "C1 data: doubling deviation inside Theorem 1(B) (Monkey Business)": "PASS (9 configurations)",
+    "E10a DKW band: problems for width 0.1 (descriptive)": "k=4n: 2.2e+02-1.1e+06; k=16n: >2e+12 in 2/10",
+    "E10 problems needed for +-0.05, any estimator (descriptive)": "k=2n: 20 to 66, not binding in 2/10; k=4n: 59 to 840, not binding in 2/10; k=8n: 170 to 3.0e5, not binding in 2/10; k=16n: 260 to 2.9e10, not binding in 2/10; k=32n: 260 to 5.0e11, >1e12 in 2/10, not binding in 2/10; k=64n: 300, >1e12 in 7/10, not binding in 2/10",
+    "E10 problems needed for +-0.1, any estimator (descriptive)": "k=2n: 10 to 16, not binding in 7/10; k=4n: 17 to 100, not binding in 3/10; k=8n: 58 to 4,200, not binding in 3/10; k=16n: 11 to 4.1e6, not binding in 2/10; k=32n: 12 to 7.5e11, not binding in 2/10; k=64n: 13 to 3.6e11, >1e12 in 2/10, not binding in 2/10",
+    "E10b likelihood-ratio band against the bound (descriptive)": "LR band at level 3/4 needs 3.3-5.4x the bound's problems (t = 4, 8, 16n; 24 pairs); at 95% 10-16x; DKW band 490-28,000x",
+    "E10 bound under resampling of problems (descriptive)": "MATH L3-8B-I k=4n: 170 to 320 (full data 260; more than 1,319 in 0/20); MATH L3-8B-I k=16n: 57,000 to 6.6e7 (full data 5.7e6; more than 1,319 in 20/20); CC L3-70B-I k=4n: 98 to 160 (full data 120; more than 1,319 in 0/20); CC L3-70B-I k=16n: 59,000 to 3.6e6 (full data 6.2e5; more than 1,319 in 20/20); MATH L3-70B-I k=4n: 29 to 88 (full data 63; more than 1,319 in 0/20); MATH L3-70B-I k=16n: 48 to 9,400 (full data 260; more than 1,319 in 5/20)",
+    "E10 error floor at realistic m, any estimator (descriptive)": "m = 1,319: k=2n 0.001-0.011 (above 0.05 for 0/10), k=4n 0.002-0.044 (above 0.05 for 0/10), k=8n 0.002-0.122 (above 0.05 for 5/10), k=16n 0.003-0.205 (above 0.05 for 7/10), k=32n 0.004-0.242 (above 0.05 for 7/10), k=64n 0.005-0.310 (above 0.05 for 7/10); at k=16n the floor exceeds 0.05 for 7/10 count laws (0.084 to 0.205)",
+    "E10 error floor under resampling of problems (descriptive)": "MATH L3-8B-I k=4n: floor 0.028-0.033 (full data 0.032; spread 1.19; problems needed spread 1.92); MATH L3-8B-I k=16n: floor 0.065-0.103 (full data 0.087; spread 1.59; problems needed spread 1,200); CC L3-70B-I k=4n: floor 0.017-0.023 (full data 0.020; spread 1.31; problems needed spread 1.67); CC L3-70B-I k=16n: floor 0.097-0.129 (full data 0.116; spread 1.33; problems needed spread 62); MATH L3-70B-I k=4n: floor 0.018-0.024 (full data 0.022; spread 1.34; problems needed spread 3.02); MATH L3-70B-I k=16n: floor 0.026-0.058 (full data 0.043; spread 2.24; problems needed spread 200)",
+    "E10b likelihood-ratio interval on drawn benchmarks (descriptive)": "22 (count law, t) pairs, 100 draws each at the best-case m: median width 0.082-0.097 (best case 0.1); coverage at nominal 0.75: k=4n 0.83 (8 pairs), k=8n 0.95 (8 pairs), k=16n 0.99 (6 pairs); midpoint within +-0.05 in 81% or more of the draws of every pair",
+    "E10 error bracket at realistic m (descriptive)": "m = 1,319: likelihood-ratio half-width over the floor (median of 100 drawn benchmarks; count laws with floor above 0.01) k=4n 1.31-1.56, k=8n 1.12-1.29, k=16n 1.02-1.22; coverage at nominal 0.75: k=4n 0.85, k=8n 0.92, k=16n 0.97; at k=16n, for the 7 count laws whose floor exceeds 0.05: floor 0.084-0.205, half-width 0.089-0.222",
+    "C5e relative failure-rate errors (exploratory)": "21 resolved cells with |error| < 0.01 but fold error >= 2; backtest >= 2x best fold in 2/10; relative flips 1",
+    "Ab3: G1/G2 statuses agree": "12/12",
+    "sota": "E10 floor: REPORTED; E10 floor, resampled problems: REPORTED; E10 bracket: REPORTED; E10: REPORTED; E10, fixed k: REPORTED; E10a: REPORTED; E10 at +-0.1: REPORTED; E10b: REPORTED; E10b on drawn benchmarks: REPORTED; E10, resampled problems: REPORTED; C1: SUPPORTED; C1 scope: OPEN (barrier holds for the class, not for all estimators); C1 data: SUPPORTED; C1 accuracy, Base: LP WORSE; C1 accuracy, Instruct: LP WORSE; C2: SUPPORTED; C2 decomposition: REPORTED; C3: NOT SUPPORTED (retired); C4, G1: SUPPORTED; C4, G2: SUPPORTED; C5a, E8: SUPPORTED (as run; see moment-matching note); C5b, E8: SUPPORTED; C5c, E8: EXPLORATORY; C5d, E8: EXPLORATORY; C5b, Monkey Business: SUPPORTED; C5c, Monkey Business: NOT SUPPORTED; C5d, Monkey Business: NOT SUPPORTED; C5e: EXPLORATORY"
+  },
+  "figures": [
+    "F17_assumption_A1_tests",
+    "F1_population_horizon",
+    "F2_bound_vs_measured_bias",
+    "F15_mechanism_bias_by_rate",
+    "F8_theorem1C_lemma6",
+    "F3_sandwich",
+    "F4_certified_horizons_nmin",
+    "F9_baseline_comparison",
+    "F10_per_seed_errors",
+    "F5_passk_bands_forecasts",
+    "F16_piband_coverage",
+    "F6_sign_identification",
+    "F11_ablations",
+    "F13_data_breakdown",
+    "F14_efficiency",
+    "F18_bands_vs_forecasts_all_streams",
+    "F19_family_dependence",
+    "F20_certified_horizon_vs_m",
+    "F21_band_construction",
+    "F22_ground_truth_beyond_2n",
+    "F23_family_choice_ground_truth",
+    "F24_problems_needed_any_estimator",
+    "F26_bound_tightness_and_stability",
+    "F27_error_floor_and_stability",
+    "F28_likelihood_ratio_simulation",
+    "F29_error_bracket_realistic_m",
+    "F25_relative_failure_rate_errors",
+    "F7a_A1_violation_copy_model",
+    "F7b_A1_violation_block_drift",
+    "F12_adversarial_pairs_and_selection"
+  ],
+  "tables": [
+    "T1_assumption_tests",
+    "T5a_sandwich",
+    "T5b_attempt_budget",
+    "T3_estimator_comparison",
+    "T3b_estimator_tests",
+    "T11_crossing_pair",
+    "T2_corollary_checks",
+    "T12a_streams_checks",
+    "T12b_streams_extrapolation",
+    "T10_certified_horizons",
+    "T13_ground_truth_math500",
+    "T13b_ground_truth_family_choice",
+    "T14a_monkey_business_data",
+    "T14b_monkey_business_family_choice",
+    "T15b_dkw_band_vs_benchmark_size",
+    "T15_problems_needed_any_estimator",
+    "T15c_problems_needed_fixed_k",
+    "T15d_problems_needed_pm01",
+    "T17_upper_vs_lower_bound",
+    "T18_bound_under_resampling",
+    "T19_error_floor_realistic_m",
+    "T20_floor_vs_problems_needed_stability",
+    "T21_likelihood_ratio_simulation",
+    "T22_error_bracket_realistic_m",
+    "T16_relative_failure_rate_errors",
+    "T6_robustness_adversarial",
+    "T7_verifier_ablation_G1_vs_G2",
+    "T4_sota_comparison_rows",
+    "T8_claims"
+  ],
+  "monkey_business": {
+    "repo": "ScalingIntelligence/monkey_business",
+    "configs": {
+      "GSM8K_Llama-3-8B-Instruct": {
+        "config": "GSM8K_Llama-3-8B-Instruct",
+        "repo": "ScalingIntelligence/monkey_business",
+        "source": "Hugging Face Hub",
+        "bytes": 367281014,
+        "sha256": "0e334c7010a2eb39ab0aaf38cdd196da0b6219a95fd69f82d35b8f51e46ed765",
+        "problems": 127,
+        "orig_dset_idx_fields": 127,
+        "attempts_min": 10000,
+        "attempts_max": 10000,
+        "download_seconds": 2.4,
+        "parse_seconds": 2.6,
+        "fetched": "2026-10-09T16:28:40"
+      },
+      "GSM8K_Llama-3-70B-Instruct": {
+        "config": "GSM8K_Llama-3-70B-Instruct",
+        "repo": "ScalingIntelligence/monkey_business",
+        "source": "Hugging Face Hub",
+        "bytes": 333467388,
+        "sha256": "22ff8a363d5a5b8ea5a6c299285d8f615ec32b9c1fe08e8253cc1a6c9c7c323f",
+        "problems": 127,
+        "orig_dset_idx_fields": 127,
+        "attempts_min": 10000,
+        "attempts_max": 10000,
+        "download_seconds": 1.6,
+        "parse_seconds": 2.4,
+        "fetched": "2026-10-09T16:32:39"
+      },
+      "MATH_Llama-3-8B-Instruct": {
+        "config": "MATH_Llama-3-8B-Instruct",
+        "repo": "ScalingIntelligence/monkey_business",
+        "source": "Hugging Face Hub",
+        "bytes": 686824939,
+        "sha256": "e2ebc4e3ff3fa3ae2c58274f839b63447aafca157c70482352a6ae279bad04b3",
+        "problems": 128,
+        "orig_dset_idx_fields": 128,
+        "attempts_min": 10000,
+        "attempts_max": 10000,
+        "download_seconds": 2.1,
+        "parse_seconds": 4.4,
+        "fetched": "2026-10-09T16:34:26"
+      },
+      "MATH_Llama-3-70B-Instruct": {
+        "config": "MATH_Llama-3-70B-Instruct",
+        "repo": "ScalingIntelligence/monkey_business",
+        "source": "Hugging Face Hub",
+        "bytes": 655992402,
+        "sha256": "372ef3ac8921ad11daf38214c44f275acada7e76101c80893bc27dc78f132347",
+        "problems": 128,
+        "orig_dset_idx_fields": 128,
+        "attempts_min": 10000,
+        "attempts_max": 10000,
+        "download_seconds": 3.1,
+        "parse_seconds": 4.3,
+        "fetched": "2026-10-09T16:39:31"
+      },
+      "CodeContests_Llama-3-8B-Instruct": {
+        "config": "CodeContests_Llama-3-8B-Instruct",
+        "repo": "ScalingIntelligence/monkey_business",
+        "source": "Hugging Face Hub",
+        "bytes": 681410942,
+        "sha256": "ab2e0d10c274f2d3076a2a1886d86d97684d0f5ffcea46553f0cf2283b31ff90",
+        "problems": 140,
+        "orig_dset_idx_fields": 140,
+        "attempts_min": 10000,
+        "attempts_max": 10000,
+        "download_seconds": 2.1,
+        "parse_seconds": 4.5,
+        "fetched": "2026-10-09T16:41:53"
+      },
+      "CodeContests_Llama-3-70B-Instruct": {
+        "config": "CodeContests_Llama-3-70B-Instruct",
+        "repo": "ScalingIntelligence/monkey_business",
+        "source": "Hugging Face Hub",
+        "bytes": 755038254,
+        "sha256": "7c043f962cd730b04b14c45361e50f555ab8db81dd569193527a1294257210e5",
+        "problems": 140,
+        "orig_dset_idx_fields": 140,
+        "attempts_min": 10000,
+        "attempts_max": 10000,
+        "download_seconds": 2.2,
+        "parse_seconds": 4.9,
+        "fetched": "2026-10-09T16:46:01"
+      },
+      "MATH_Gemma-7B": {
+        "config": "MATH_Gemma-7B",
+        "repo": "ScalingIntelligence/monkey_business",
+        "source": "Hugging Face Hub",
+        "bytes": 696003538,
+        "sha256": "a302091f22ce9faf99dcd191d6f441901931116d3adf8c1ac377ac926bb62c46",
+        "problems": 128,
+        "orig_dset_idx_fields": 128,
+        "attempts_min": 10000,
+        "attempts_max": 10000,
+        "download_seconds": 2.1,
+        "parse_seconds": 4.4,
+        "fetched": "2026-10-09T16:48:12"
+      },
+      "CodeContests_Gemma-7B": {
+        "config": "CodeContests_Gemma-7B",
+        "repo": "ScalingIntelligence/monkey_business",
+        "source": "Hugging Face Hub",
+        "bytes": 1119397011,
+        "sha256": "28fbd2ac514c7dde557d7c57ac67b17a6e9240d7d490467a3ee85d059e217aa5",
+        "problems": 140,
+        "orig_dset_idx_fields": 140,
+        "attempts_min": 10000,
+        "attempts_max": 10000,
+        "download_seconds": 2.6,
+        "parse_seconds": 7.0,
+        "fetched": "2026-10-09T16:50:45"
+      },
+      "MATH_Pythia-12B": {
+        "config": "MATH_Pythia-12B",
+        "repo": "ScalingIntelligence/monkey_business",
+        "source": "Hugging Face Hub",
+        "bytes": 804468969,
+        "sha256": "c3c8ba987786dc60fa5536be924b76fa009f57a9551acb9ed7c559c0588ffe45",
+        "problems": 128,
+        "orig_dset_idx_fields": 128,
+        "attempts_min": 10000,
+        "attempts_max": 10000,
+        "download_seconds": 2.3,
+        "parse_seconds": 5.1,
+        "fetched": "2026-10-09T16:52:52"
+      }
+    },
+    "unavailable": {}
+  },
+  "sampling": {
+    "gsm8k:base": {
+      "m": 300,
+      "mean_seconds_per_problem": 9.503413333333334,
+      "tokens_per_second": 2722.6785884650562,
+      "pass_at_1_G1": 0.2984765625,
+      "cap_rate": 0.012838541666666667
+    },
+    "gsm8k:instruct": {
+      "m": 300,
+      "mean_seconds_per_problem": 20.527856666666665,
+      "tokens_per_second": 3233.534691152202,
+      "pass_at_1_G1": 0.41674479166666667,
+      "cap_rate": 0.036497395833333335
+    },
+    "gsm8k:base15": {
+      "m": 300,
+      "mean_seconds_per_problem": 29.066236666666665,
+      "tokens_per_second": 1443.3090810632407,
+      "pass_at_1_G1": 0.4607421875,
+      "cap_rate": 0.04627604166666666
+    },
+    "gsm8k:rl15": {
+      "m": 300,
+      "mean_seconds_per_problem": 33.58067666666666,
+      "tokens_per_second": 2454.5179405259155,
+      "pass_at_1_G1": 0.7575,
+      "cap_rate": 0.054674479166666665
+    },
+    "math500:base": {
+      "m": 300,
+      "mean_seconds_per_problem": 21.8185,
+      "tokens_per_second": 2330.8886189854175,
+      "pass_at_1_G1": 0.1398046875,
+      "cap_rate": 0.09061197916666666
+    },
+    "math500:instruct": {
+      "m": 300,
+      "mean_seconds_per_problem": 23.29347333333333,
+      "tokens_per_second": 4733.346908905241,
+      "pass_at_1_G1": 0.22841145833333334,
+      "cap_rate": 0.48498697916666667
+    },
+    "math500:base_x2": {
+      "m": 300,
+      "mean_seconds_per_problem": 22.81108,
+      "tokens_per_second": 2230.047269426378,
+      "pass_at_1_G1": 0.1393359375,
+      "cap_rate": 0.089609375
+    },
+    "math500:base_x3": {
+      "m": 300,
+      "mean_seconds_per_problem": 22.887036666666663,
+      "tokens_per_second": 2220.6081433871377,
+      "pass_at_1_G1": 0.1404296875,
+      "cap_rate": 0.08864583333333333
+    },
+    "math500:base_x4": {
+      "m": 300,
+      "mean_seconds_per_problem": 22.842196666666666,
+      "tokens_per_second": 2234.6188537909156,
+      "pass_at_1_G1": 0.13802083333333334,
+      "cap_rate": 0.09153645833333333
+    },
+    "math500:instruct1k": {
+      "m": 300,
+      "mean_seconds_per_problem": 46.092726666666664,
+      "tokens_per_second": 3126.6993100429872,
+      "pass_at_1_G1": 0.29432291666666666,
+      "cap_rate": 0.11907552083333334
+    }
+  }
+}

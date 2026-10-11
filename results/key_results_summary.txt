@@ -1,0 +1,76 @@
+A Quadratic Horizon and a Doubling Barrier: Distribution-Free Limits on Extrapolating pass@k from Repeated Samples
+environment: kaggle; dry_run=False; smoke=False; mode=analyze; main-pair m=300; runtime 35.4 min
+
+sampling progress: G-B0.5 300/300, G-I0.5 300/300, G-B1.5 300/300, G-RL1.5 300/300, M-B0.5 300/300, M-I0.5 300/300, M-B0.5x2 300/300, M-B0.5x3 300/300, M-B0.5x4 300/300, M-I0.5L 300/300
+analysis ran this session: True
+
+A1 (Base): PASS
+A2 (Base): PASS
+A3 (Base): PASS
+A1 (Instruct): PASS
+A2 (Instruct): PASS
+A3 (Instruct): FAIL (p_i read as verifier-acceptance probability)
+Theorem 1(A) horizon bracket: PASS
+Corollary 3 (numerical): PASS
+Corollary 1 (Base): PASS
+Corollary 2 (Base): PASS
+Overdispersion (Base): PASS
+Corollary 1 (Instruct): PASS
+Corollary 2 (Instruct): PASS
+Overdispersion (Instruct): PASS
+Corollary 3 (data-facing, Lemma 6): PASS
+PI-band coverage (semi-synthetic): PASS
+C4 reversal beyond 2n not identified (G1): PASS: not identified from n = [8, 16, 32]
+C4 reversal beyond 2n not identified (G2): PASS: not identified from n = [8, 16, 32]
+Ab1: lambda=0 certificate exceeds lambda*: YES
+Ab1: certificate settles across G: YES
+Ab2: contrast inside envelope (all kernels): PASS
+C2 wide bands beyond 2n (claim streams): PASS
+C3 family-driven forecasts: FAIL
+C1 certified horizon near 2n at realistic m: PASS
+C1 scope: two-point bound binds at t (eps=0.1, realistic m): 11.2 to 34 (LP certifies up to 2.5)
+Ab4: the band used does not widen with more attempts: PASS
+C5a family choice changes accuracy (E8): PASS
+C5b band covers ground truth (E8): PASS
+C5c backtest (E8, exploratory): FAILS (picked far error 0.0330 vs best 0.0075)
+C5d family flip (E8, exploratory): FLIP (best at k=128: Power law; at k=992: Beta-bin.)
+C5a without moment matching (E8, descriptive): family index 1.7 at k=992 (pre-registered rule needs 3); error gap among the three standard families 0.062
+C5c backtest fails to find the far-k family (Monkey Business, pre-registered): NOT SUPPORTED (2/6 informative streams)
+C5d best family flips between 4n and the far k (Monkey Business, pre-registered): NOT SUPPORTED (0/6 informative streams)
+C5b band covers ground truth (Monkey Business, pre-registered): PASS (9/9 configurations)
+C1 data: doubling deviation inside Theorem 1(B) (Monkey Business): PASS (9 configurations)
+E10a DKW band: problems for width 0.1 (descriptive): k=4n: 2.2e+02-1.1e+06; k=16n: >2e+12 in 2/10
+E10 problems needed for +-0.05, any estimator (descriptive): k=2n: 20 to 66, not binding in 2/10; k=4n: 59 to 840, not binding in 2/10; k=8n: 170 to 3.0e5, not binding in 2/10; k=16n: 260 to 2.9e10, not binding in 2/10; k=32n: 260 to 5.0e11, >1e12 in 2/10, not binding in 2/10; k=64n: 300, >1e12 in 7/10, not binding in 2/10
+E10 problems needed for +-0.1, any estimator (descriptive): k=2n: 10 to 16, not binding in 7/10; k=4n: 17 to 100, not binding in 3/10; k=8n: 58 to 4,200, not binding in 3/10; k=16n: 11 to 4.1e6, not binding in 2/10; k=32n: 12 to 7.5e11, not binding in 2/10; k=64n: 13 to 3.6e11, >1e12 in 2/10, not binding in 2/10
+E10b likelihood-ratio band against the bound (descriptive): LR band at level 3/4 needs 3.3-5.4x the bound's problems (t = 4, 8, 16n; 24 pairs); at 95% 10-16x; DKW band 490-28,000x
+E10 bound under resampling of problems (descriptive): MATH L3-8B-I k=4n: 170 to 320 (full data 260; more than 1,319 in 0/20); MATH L3-8B-I k=16n: 57,000 to 6.6e7 (full data 5.7e6; more than 1,319 in 20/20); CC L3-70B-I k=4n: 98 to 160 (full data 120; more than 1,319 in 0/20); CC L3-70B-I k=16n: 59,000 to 3.6e6 (full data 6.2e5; more than 1,319 in 20/20); MATH L3-70B-I k=4n: 29 to 88 (full data 63; more than 1,319 in 0/20); MATH L3-70B-I k=16n: 48 to 9,400 (full data 260; more than 1,319 in 5/20)
+E10 error floor at realistic m, any estimator (descriptive): m = 1,319: k=2n 0.001-0.011 (above 0.05 for 0/10), k=4n 0.002-0.044 (above 0.05 for 0/10), k=8n 0.002-0.122 (above 0.05 for 5/10), k=16n 0.003-0.205 (above 0.05 for 7/10), k=32n 0.004-0.242 (above 0.05 for 7/10), k=64n 0.005-0.310 (above 0.05 for 7/10); at k=16n the floor exceeds 0.05 for 7/10 count laws (0.084 to 0.205)
+E10 error floor under resampling of problems (descriptive): MATH L3-8B-I k=4n: floor 0.028-0.033 (full data 0.032; spread 1.19; problems needed spread 1.92); MATH L3-8B-I k=16n: floor 0.065-0.103 (full data 0.087; spread 1.59; problems needed spread 1,200); CC L3-70B-I k=4n: floor 0.017-0.023 (full data 0.020; spread 1.31; problems needed spread 1.67); CC L3-70B-I k=16n: floor 0.097-0.129 (full data 0.116; spread 1.33; problems needed spread 62); MATH L3-70B-I k=4n: floor 0.018-0.024 (full data 0.022; spread 1.34; problems needed spread 3.02); MATH L3-70B-I k=16n: floor 0.026-0.058 (full data 0.043; spread 2.24; problems needed spread 200)
+E10b likelihood-ratio interval on drawn benchmarks (descriptive): 22 (count law, t) pairs, 100 draws each at the best-case m: median width 0.082-0.097 (best case 0.1); coverage at nominal 0.75: k=4n 0.83 (8 pairs), k=8n 0.95 (8 pairs), k=16n 0.99 (6 pairs); midpoint within +-0.05 in 81% or more of the draws of every pair
+E10 error bracket at realistic m (descriptive): m = 1,319: likelihood-ratio half-width over the floor (median of 100 drawn benchmarks; count laws with floor above 0.01) k=4n 1.31-1.56, k=8n 1.12-1.29, k=16n 1.02-1.22; coverage at nominal 0.75: k=4n 0.85, k=8n 0.92, k=16n 0.97; at k=16n, for the 7 count laws whose floor exceeds 0.05: floor 0.084-0.205, half-width 0.089-0.222
+C5e relative failure-rate errors (exploratory): 21 resolved cells with |error| < 0.01 but fold error >= 2; backtest >= 2x best fold in 2/10; relative flips 1
+Ab3: G1/G2 statuses agree: 12/12
+sota: E10 floor: REPORTED; E10 floor, resampled problems: REPORTED; E10 bracket: REPORTED; E10: REPORTED; E10, fixed k: REPORTED; E10a: REPORTED; E10 at +-0.1: REPORTED; E10b: REPORTED; E10b on drawn benchmarks: REPORTED; E10, resampled problems: REPORTED; C1: SUPPORTED; C1 scope: OPEN (barrier holds for the class, not for all estimators); C1 data: SUPPORTED; C1 accuracy, Base: LP WORSE; C1 accuracy, Instruct: LP WORSE; C2: SUPPORTED; C2 decomposition: REPORTED; C3: NOT SUPPORTED (retired); C4, G1: SUPPORTED; C4, G2: SUPPORTED; C5a, E8: SUPPORTED (as run; see moment-matching note); C5b, E8: SUPPORTED; C5c, E8: EXPLORATORY; C5d, E8: EXPLORATORY; C5b, Monkey Business: SUPPORTED; C5c, Monkey Business: NOT SUPPORTED; C5d, Monkey Business: NOT SUPPORTED; C5e: EXPLORATORY
+base: pass@1 0.2985; Corollary 1 mean difference +0.00147 [-0.01035, +0.01266] vs +-0.00601; Corollary 2 max deviation 0.0269 vs 0.1236
+instruct: pass@1 0.4167; Corollary 1 mean difference +0.00244 [-0.00696, +0.01171] vs +-0.00601; Corollary 2 max deviation 0.0219 vs 0.1236
+E5 pair (G1): crossing k* 29.120; base significantly ahead from k = 98; n with the reversal beyond 2n: [8, 16, 32]; pass@256 RL - base -0.017 [-0.033, 0.000]
+E5 pair (G2): crossing k* 46.434; base significantly ahead from k = 126; n with the reversal beyond 2n: [8, 16, 32]; pass@256 RL - base -0.023 [-0.043, -6.67e-03]
+E7: LP certifies 0.1 up to t = 1.25-2.5 at m <= 1319; M5 reaches 0.1 at t = 11.2-34
+E8 n=32: far-k errors Power law 0.0307, Beta-bin. 0.0075, NPMLE 0.0696; backtest choice 0.0330; family index 3.7 (without MM 1.7)
+E8 n=128: far-k errors Power law 0.0267, Beta-bin. 0.0042, NPMLE 0.0368; backtest choice 0.0295; family index 2.8 (without MM 1.0)
+E9 (Monkey Business, n=32): 9 configurations; informative 6; backtest fails 2; family flips 0
+E10 error floor of every estimator (n=32, probability 1/4): m = 1,319: k=2n 0.001-0.011 (above 0.05 for 0/10), k=4n 0.002-0.044 (above 0.05 for 0/10), k=8n 0.002-0.122 (above 0.05 for 5/10), k=16n 0.003-0.205 (above 0.05 for 7/10), k=32n 0.004-0.242 (above 0.05 for 7/10), k=64n 0.005-0.310 (above 0.05 for 7/10); at k=16n the floor exceeds 0.05 for 7/10 count laws (0.084 to 0.205)
+E10 floor under resampling: MATH L3-8B-I k=4n: floor 0.028-0.033 (full data 0.032; spread 1.19; problems needed spread 1.92); MATH L3-8B-I k=16n: floor 0.065-0.103 (full data 0.087; spread 1.59; problems needed spread 1,200); CC L3-70B-I k=4n: floor 0.017-0.023 (full data 0.020; spread 1.31; problems needed spread 1.67); CC L3-70B-I k=16n: floor 0.097-0.129 (full data 0.116; spread 1.33; problems needed spread 62); MATH L3-70B-I k=4n: floor 0.018-0.024 (full data 0.022; spread 1.34; problems needed spread 3.02); MATH L3-70B-I k=16n: floor 0.026-0.058 (full data 0.043; spread 2.24; problems needed spread 200)
+E10, problems needed by any estimator (an order of magnitude; n=32, +-0.05): k=2n: 20 to 66, not binding in 2/10; k=4n: 59 to 840, not binding in 2/10; k=8n: 170 to 3.0e5, not binding in 2/10; k=16n: 260 to 2.9e10, not binding in 2/10; k=32n: 260 to 5.0e11, >1e12 in 2/10, not binding in 2/10; k=64n: 300, >1e12 in 7/10, not binding in 2/10
+E10a, DKW band (width 0.1): k=4n: 2.2e+02-1.1e+06; k=16n: >2e+12 in 2/10
+E10 at +-0.1: k=2n: 10 to 16, not binding in 7/10; k=4n: 17 to 100, not binding in 3/10; k=8n: 58 to 4,200, not binding in 3/10; k=16n: 11 to 4.1e6, not binding in 2/10; k=32n: 12 to 7.5e11, not binding in 2/10; k=64n: 13 to 3.6e11, >1e12 in 2/10, not binding in 2/10
+E10b: LR band at level 3/4 needs 3.3-5.4x the bound's problems (t = 4, 8, 16n; 24 pairs); at 95% 10-16x; DKW band 490-28,000x
+E10b on drawn benchmarks: 22 (count law, t) pairs, 100 draws each at the best-case m: median width 0.082-0.097 (best case 0.1); coverage at nominal 0.75: k=4n 0.83 (8 pairs), k=8n 0.95 (8 pairs), k=16n 0.99 (6 pairs); midpoint within +-0.05 in 81% or more of the draws of every pair
+E10 under resampling: MATH L3-8B-I k=4n: 170 to 320 (full data 260; more than 1,319 in 0/20); MATH L3-8B-I k=16n: 57,000 to 6.6e7 (full data 5.7e6; more than 1,319 in 20/20); CC L3-70B-I k=4n: 98 to 160 (full data 120; more than 1,319 in 0/20); CC L3-70B-I k=16n: 59,000 to 3.6e6 (full data 6.2e5; more than 1,319 in 20/20); MATH L3-70B-I k=4n: 29 to 88 (full data 63; more than 1,319 in 0/20); MATH L3-70B-I k=16n: 48 to 9,400 (full data 260; more than 1,319 in 5/20)
+C5e (exploratory, relative failure-rate errors): 21 resolved cells with |error| < 0.01 but fold error >= 2; backtest >= 2x best fold in 2/10; relative flips 1
+
+Draft abstract (numbers from this run):
+With n attempts on each of m problems, the success counts identify pass@k for k > n only through the first n moments of the success-rate distribution. Two populations with the same counts can differ in pass@k by at most 2E_n(x^k), the error of the best degree-n approximation to x^k, which stays below a tolerance eps until k is of order n^2/ln(4/eps) and exceeds 0.33 from k = 8n^2 on. This quadratic horizon is what infinitely many problems could reveal. How far benchmarks are from it can be bounded for every estimator. On 10 real count laws (Llama-3, Gemma, Pythia and Qwen models on GSM8K, MATH and CodeContests), Le Cam's two-point method with a Hellinger constraint shows that with m = 1,319 problems (the size of the GSM8K test set) and n = 32 attempts each, every estimator of pass@16n errs by at least 0.084 to 0.205, with probability at least 1/4 under some population near the observed one, for 7 of the 10 count laws (0.095 to 0.225 at m = 500); at pass@64n the floor reaches 0.31, while at pass@4n it is at most 0.044 for every count law, so there the bound leaves open whether benchmarks of the usual size suffice. The floor is close to what a standard procedure achieves at that m: on 100 benchmarks of 1,319 problems drawn from each observed distribution, a profile likelihood-ratio interval at the same probability level has a median half-width of 1.02 to 1.22 times the floor at pass@16n (0.089 to 0.222 for the count laws whose floor exceeds 0.05) and holds the true value in 97% of the draws against a nominal 75%. Over 20 resamples of the problems, the floor at pass@16n varies by a factor of at most 2.2 between the 10th and 90th percentiles (1.6 where it exceeds 0.05) and stays above 0.05 in every resample for 2 of the 3 count laws tested, whereas the number of problems needed for +-0.05, read from the same bound where a nearly flat curve crosses a threshold, moves by up to a factor of 1,200. As a sample size the bound is an order-of-magnitude statement: for pass@16n, 7 of the count laws need more than 65,000 problems for +-0.05. Attempts per problem matter more than the number of problems: at k = 512 the median requirement falls from 1.3e5 problems with n = 32 to 770 with n = 64. Counted in problems rather than in error, the same interval narrows to width 0.1 with 3.3 to 5.4 times as many problems as the bound requires in its best case (10 to 16 times for a 95% interval; pass@4n to pass@16n), while a DKW band needs 490 to 28,000 times as many. On 100 benchmarks of that size drawn from each observed distribution (22 count-law and k combinations), the interval's median width was 0.082 to 0.097, it held the true pass@k in 73% to 100% of the draws against a nominal 75%, and its midpoint was within +-0.05 of it in at least 81% of the draws of every combination. At the benchmark sizes in use (m <= 1,319) the binding limits are finite-sample. For linear estimators of the count histogram with range-based certificates, which include the unbiased estimator of Chen et al. (2021) and the doubling estimator of Theorem 1(B), a certified error of 0.1 is reached only up to k = 1.25n-2.5n; the worst-case two-point lower bound reaches 0.1 only at k = 11.2n-34n, and between the two it is open, for worst-case populations, whether any estimator can certify that error at these m. Beyond 2n the counts give bands rather than points: in 9 of the 9 Monkey Business configurations the 95% band from 32 attempts held the held-out truth in at least 7 of 8 blocks at every k where it was computed, up to k = 8,192, and on our own streams its median width at pass@4n is 0.23. Inside a band the forecast depends on the parametric family. With ground truth up to k = 8,192 on the Monkey Business release (Brown et al., 2024), in the 6 settings where the family mattered, the family that was most accurate at k = 4n stayed within a factor of two of the best at the largest k in 6 of them, and choosing the family by its fit inside the sampled range came within a factor of two of the best family in 4. In relative terms (an exploratory analysis added after these results), forecasts on GSM8K whose pass@k errors were below 0.01 were off in the failure rate by factors of 2 to 142.
+
+Paper plan: see paper_outline.md
+W1 floor at k=48: 0.2100; LP-cert(32,48,300) 0.1148; doubling certificate 0.1236; M5 lower bound 0.0138
