@@ -1,0 +1,208 @@
+{
+  "figure": "F12_adversarial_pairs_and_selection",
+  "figsize": [
+    5.42,
+    1.92
+  ],
+  "palette": [
+    "#1b9e77",
+    "#d95f02",
+    "#7570b3",
+    "#e7298a",
+    "#66a61e",
+    "#e6ab02",
+    "#a6761d",
+    "#666666",
+    "#1f1f1f",
+    "#2c7fb8"
+  ],
+  "method_colors": {
+    "Doubling (ours)": "#1b9e77",
+    "LP-cert (ours)": "#d95f02",
+    "Chen et al.": "#7570b3",
+    "Power law": "#e7298a",
+    "Beta-binomial": "#66a61e",
+    "NPMLE": "#e6ab02",
+    "Moment matching": "#a6761d",
+    "Bound / envelope": "#666666",
+    "Base model": "#1f1f1f",
+    "Instruct model": "#2c7fb8"
+  },
+  "model_colors": {
+    "base": "#1f1f1f",
+    "instruct": "#2c7fb8"
+  },
+  "layout_audit": {
+    "n_text": 22,
+    "text_overlaps": 0,
+    "text_outside_canvas": 0,
+    "legend_over_axes": 0,
+    "overlap_examples": [],
+    "outside_examples": []
+  },
+  "caption": "Adversarial: (a) estimates under an identical-count-law pair; (b) contrast on an adversarially selected subset.",
+  "dry_run": false,
+  "smoke": false,
+  "data": {
+    "adv2": {
+      "base": {
+        "F_plus": 0.39228717321727624,
+        "F_minus": 0.057884613981141995,
+        "sep": 0.33440255923613427,
+        "law_diff": 1.1102230246251565e-16,
+        "q": {
+          "Doubling (ours)": [
+            0.0,
+            1.0,
+            1.0
+          ],
+          "LP-cert (ours)": [
+            0.49999999884326657,
+            0.49999999955169616,
+            0.5000000003010114
+          ],
+          "Power law": [
+            0.17337238360573878,
+            0.2111422227333225,
+            0.25091573864258576
+          ],
+          "Beta-binomial": [
+            0.2212294542511936,
+            0.2641565224421387,
+            0.3074601371163776
+          ],
+          "NPMLE": [
+            0.11315042695537368,
+            0.18012174195917435,
+            0.2500324259958267
+          ],
+          "Moment matching": [
+            5.713439379696234e-37,
+            0.4135823500088609,
+            0.6031832004849589
+          ]
+        },
+        "band_both": 1.0,
+        "miss": {
+          "Doubling (ours)": [
+            1.0,
+            0.798
+          ],
+          "LP-cert (ours)": [
+            0.0,
+            1.0
+          ],
+          "Power law": [
+            0.678,
+            0.322
+          ],
+          "Beta-binomial": [
+            0.122,
+            0.878
+          ],
+          "NPMLE": [
+            0.8,
+            0.2
+          ],
+          "Moment matching": [
+            0.76,
+            0.536
+          ]
+        }
+      },
+      "instruct": {
+        "F_plus": 0.3856205065506094,
+        "F_minus": 0.05121794731447515,
+        "sep": 0.33440255923613427,
+        "law_diff": 3.469446951953614e-18,
+        "q": {
+          "Doubling (ours)": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "LP-cert (ours)": [
+            0.4999999989468316,
+            0.49999999969226827,
+            0.500000000422764
+          ],
+          "Power law": [
+            0.18544852423710914,
+            0.22718025447143886,
+            0.26633643554641734
+          ],
+          "Beta-binomial": [
+            0.20803384959977936,
+            0.24805741504275683,
+            0.2884919356781308
+          ],
+          "NPMLE": [
+            0.10864818641844888,
+            0.17166624508098924,
+            0.2475872115598852
+          ],
+          "Moment matching": [
+            1.0061866052421173e-33,
+            0.29606742317800727,
+            0.5625982900619255
+          ]
+        },
+        "band_both": 1.0,
+        "miss": {
+          "Doubling (ours)": [
+            1.0,
+            0.992
+          ],
+          "LP-cert (ours)": [
+            0.0,
+            1.0
+          ],
+          "Power law": [
+            0.398,
+            0.602
+          ],
+          "Beta-binomial": [
+            0.188,
+            0.812
+          ],
+          "NPMLE": [
+            0.788,
+            0.212
+          ],
+          "Moment matching": [
+            0.63,
+            0.512
+          ]
+        }
+      }
+    },
+    "adv3": {
+      "p_star": 0.04095,
+      "beta_star": -0.002869299617348192,
+      "env": [
+        -0.0060086427074357174,
+        2.3283064365386963e-10
+      ],
+      "base": {
+        "n_sel": 49,
+        "mean": -0.0022568200189596334,
+        "lo": -0.00262228153671091,
+        "hi": -0.0018820913533923733
+      },
+      "instruct": {
+        "n_sel": 39,
+        "mean": -0.002217349433946685,
+        "lo": -0.0025928839656053455,
+        "hi": -0.0018214368406014854
+      }
+    },
+    "E3_names": [
+      "Doubling (ours)",
+      "LP-cert (ours)",
+      "Power law",
+      "Beta-binomial",
+      "NPMLE",
+      "Moment matching"
+    ]
+  }
+}

@@ -1,0 +1,423 @@
+{
+  "figure": "F23_family_choice_ground_truth",
+  "figsize": [
+    5.42,
+    1.92
+  ],
+  "palette": [
+    "#1b9e77",
+    "#d95f02",
+    "#7570b3",
+    "#e7298a",
+    "#66a61e",
+    "#e6ab02",
+    "#a6761d",
+    "#666666",
+    "#1f1f1f",
+    "#2c7fb8"
+  ],
+  "method_colors": {
+    "Doubling (ours)": "#1b9e77",
+    "LP-cert (ours)": "#d95f02",
+    "Chen et al.": "#7570b3",
+    "Power law": "#e7298a",
+    "Beta-binomial": "#66a61e",
+    "NPMLE": "#e6ab02",
+    "Moment matching": "#a6761d",
+    "Bound / envelope": "#666666",
+    "Base model": "#1f1f1f",
+    "Instruct model": "#2c7fb8"
+  },
+  "model_colors": {
+    "base": "#1f1f1f",
+    "instruct": "#2c7fb8"
+  },
+  "layout_audit": {
+    "n_text": 25,
+    "text_overlaps": 0,
+    "text_outside_canvas": 0,
+    "legend_over_axes": 0,
+    "overlap_examples": [],
+    "outside_examples": []
+  },
+  "caption": "Far-k error of each family and of the backtest choice, and the most accurate family as a function of k/n.",
+  "dry_run": false,
+  "smoke": false,
+  "data": {
+    "rows": [
+      "Q-0.5B MATH (E8)",
+      "GSM8K L3-8B-I",
+      "GSM8K L3-70B-I",
+      "MATH L3-8B-I",
+      "MATH L3-70B-I",
+      "CC L3-8B-I",
+      "CC L3-70B-I",
+      "MATH G-7B",
+      "CC G-7B",
+      "MATH P-12B"
+    ],
+    "families": [
+      "Power law",
+      "Beta-binomial",
+      "NPMLE"
+    ],
+    "Q-0.5B MATH (E8)": {
+      "k_far": 992,
+      "mean_err_far": {
+        "Power law": 0.030717580969625645,
+        "Beta-binomial": 0.007469296477441599,
+        "NPMLE": 0.069595959832006
+      },
+      "err_backtest_choice": 0.03304116094127378,
+      "best_by_k": [
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial"
+      ],
+      "ks": [
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        384,
+        512,
+        768,
+        992
+      ],
+      "n": 32
+    },
+    "GSM8K L3-8B-I": {
+      "k_far": 8192,
+      "mean_err_far": {
+        "Power law": 0.00014903858279104176,
+        "Beta-binomial": 8.845526795422804e-05,
+        "NPMLE": 0.0028358294996985323
+      },
+      "err_backtest_choice": 0.00036913988221727145,
+      "best_by_k": [
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial"
+      ],
+      "ks": [
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192
+      ],
+      "n": 32
+    },
+    "GSM8K L3-70B-I": {
+      "k_far": 8192,
+      "mean_err_far": {
+        "Power law": 0.0003903320195615734,
+        "Beta-binomial": 1.5211336746663736e-06,
+        "NPMLE": 0.005952761310383564
+      },
+      "err_backtest_choice": 0.0059527613103835635,
+      "best_by_k": [
+        "NPMLE",
+        "NPMLE",
+        "NPMLE",
+        "NPMLE",
+        "NPMLE",
+        "NPMLE",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Beta-binomial",
+        "Beta-binomial"
+      ],
+      "ks": [
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192
+      ],
+      "n": 32
+    },
+    "MATH L3-8B-I": {
+      "k_far": 8192,
+      "mean_err_far": {
+        "Power law": 0.007691935506091804,
+        "Beta-binomial": 0.025927742293927327,
+        "NPMLE": 0.04401364108580385
+      },
+      "err_backtest_choice": 0.0157210912411952,
+      "best_by_k": [
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law"
+      ],
+      "ks": [
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192
+      ],
+      "n": 32
+    },
+    "MATH L3-70B-I": {
+      "k_far": 8192,
+      "mean_err_far": {
+        "Power law": 0.007229210158654463,
+        "Beta-binomial": 0.006888075481498377,
+        "NPMLE": 0.01887358532259633
+      },
+      "err_backtest_choice": 0.012557780034293736,
+      "best_by_k": [
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Beta-binomial"
+      ],
+      "ks": [
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192
+      ],
+      "n": 32
+    },
+    "CC L3-8B-I": {
+      "k_far": 8192,
+      "mean_err_far": {
+        "Power law": 0.02201513605740278,
+        "Beta-binomial": 0.07811055787821397,
+        "NPMLE": 0.40088950260667083
+      },
+      "err_backtest_choice": 0.1618277782536242,
+      "best_by_k": [
+        "Beta-binomial",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law"
+      ],
+      "ks": [
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192
+      ],
+      "n": 32
+    },
+    "CC L3-70B-I": {
+      "k_far": 8192,
+      "mean_err_far": {
+        "Power law": 0.0516781265286472,
+        "Beta-binomial": 0.051411573133150715,
+        "NPMLE": 0.29199624439050964
+      },
+      "err_backtest_choice": 0.04030171159024726,
+      "best_by_k": [
+        "Power law",
+        "Power law",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial"
+      ],
+      "ks": [
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192
+      ],
+      "n": 32
+    },
+    "MATH G-7B": {
+      "k_far": 8192,
+      "mean_err_far": {
+        "Power law": 0.004876636549499996,
+        "Beta-binomial": 0.027082495768678477,
+        "NPMLE": 0.023784524769096677
+      },
+      "err_backtest_choice": 0.01725858984709142,
+      "best_by_k": [
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law"
+      ],
+      "ks": [
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192
+      ],
+      "n": 32
+    },
+    "CC G-7B": {
+      "k_far": 8192,
+      "mean_err_far": {
+        "Power law": 0.05650006706153443,
+        "Beta-binomial": 0.08074578557067086,
+        "NPMLE": 0.2073634152705558
+      },
+      "err_backtest_choice": 0.0524909272690877,
+      "best_by_k": [
+        "NPMLE",
+        "NPMLE",
+        "NPMLE",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law"
+      ],
+      "ks": [
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192
+      ],
+      "n": 32
+    },
+    "MATH P-12B": {
+      "k_far": 8192,
+      "mean_err_far": {
+        "Power law": 0.032466801767334436,
+        "Beta-binomial": 0.05248554819702707,
+        "NPMLE": 0.0744880107683383
+      },
+      "err_backtest_choice": 0.05753404141889741,
+      "best_by_k": [
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Beta-binomial",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law",
+        "Power law"
+      ],
+      "ks": [
+        48,
+        64,
+        96,
+        128,
+        192,
+        256,
+        512,
+        1024,
+        2048,
+        4096,
+        8192
+      ],
+      "n": 32
+    }
+  }
+}

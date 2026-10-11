@@ -1,0 +1,132 @@
+{
+  "figure": "F4_certified_horizons_nmin",
+  "figsize": [
+    5.42,
+    1.92
+  ],
+  "palette": [
+    "#1b9e77",
+    "#d95f02",
+    "#7570b3",
+    "#e7298a",
+    "#66a61e",
+    "#e6ab02",
+    "#a6761d",
+    "#666666",
+    "#1f1f1f",
+    "#2c7fb8"
+  ],
+  "method_colors": {
+    "Doubling (ours)": "#1b9e77",
+    "LP-cert (ours)": "#d95f02",
+    "Chen et al.": "#7570b3",
+    "Power law": "#e7298a",
+    "Beta-binomial": "#66a61e",
+    "NPMLE": "#e6ab02",
+    "Moment matching": "#a6761d",
+    "Bound / envelope": "#666666",
+    "Base model": "#1f1f1f",
+    "Instruct model": "#2c7fb8"
+  },
+  "model_colors": {
+    "base": "#1f1f1f",
+    "instruct": "#2c7fb8"
+  },
+  "layout_audit": {
+    "n_text": 24,
+    "text_overlaps": 0,
+    "text_outside_canvas": 0,
+    "legend_over_axes": 0,
+    "overlap_examples": [],
+    "outside_examples": []
+  },
+  "caption": "Certified horizons against m and the attempt-budget design rule.",
+  "dry_run": false,
+  "smoke": false,
+  "data": {
+    "tstar": {
+      "0.05": {
+        "m": [
+          1000,
+          10000,
+          100000,
+          1000000
+        ],
+        "t_star_LP": [
+          1.046875,
+          2.390625,
+          3.140625,
+          4.125
+        ],
+        "t_star_LB": [
+          12.359375,
+          37.0,
+          64.0,
+          64.0
+        ]
+      },
+      "0.1": {
+        "m": [
+          1000,
+          10000,
+          100000,
+          1000000
+        ],
+        "t_star_LP": [
+          1.8125,
+          4.125,
+          5.4375,
+          7.140625
+        ],
+        "t_star_LB": [
+          28.125,
+          64.0,
+          64.0,
+          64.0
+        ]
+      }
+    },
+    "nmin": {
+      "500": {
+        "k": [
+          64,
+          128,
+          256,
+          512
+        ],
+        "sufficient": [
+          64.0,
+          128.0,
+          null,
+          null
+        ],
+        "necessary": [
+          8,
+          8,
+          16,
+          32
+        ]
+      },
+      "5000": {
+        "k": [
+          64,
+          128,
+          256,
+          512
+        ],
+        "sufficient": [
+          32.0,
+          64.0,
+          128.0,
+          null
+        ],
+        "necessary": [
+          8,
+          8,
+          8,
+          8
+        ]
+      }
+    }
+  }
+}

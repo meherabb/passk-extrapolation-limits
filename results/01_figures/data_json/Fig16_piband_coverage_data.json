@@ -1,0 +1,80 @@
+{
+  "figure": "F16_piband_coverage",
+  "figsize": [
+    2.92,
+    1.92
+  ],
+  "palette": [
+    "#1b9e77",
+    "#d95f02",
+    "#7570b3",
+    "#e7298a",
+    "#66a61e",
+    "#e6ab02",
+    "#a6761d",
+    "#666666",
+    "#1f1f1f",
+    "#2c7fb8"
+  ],
+  "method_colors": {
+    "Doubling (ours)": "#1b9e77",
+    "LP-cert (ours)": "#d95f02",
+    "Chen et al.": "#7570b3",
+    "Power law": "#e7298a",
+    "Beta-binomial": "#66a61e",
+    "NPMLE": "#e6ab02",
+    "Moment matching": "#a6761d",
+    "Bound / envelope": "#666666",
+    "Base model": "#1f1f1f",
+    "Instruct model": "#2c7fb8"
+  },
+  "model_colors": {
+    "base": "#1f1f1f",
+    "instruct": "#2c7fb8"
+  },
+  "layout_audit": {
+    "n_text": 8,
+    "text_overlaps": 0,
+    "text_outside_canvas": 0,
+    "legend_over_axes": 0,
+    "overlap_examples": [],
+    "outside_examples": []
+  },
+  "caption": "Semi-synthetic coverage of the 95% PI-band.",
+  "dry_run": false,
+  "smoke": false,
+  "data": {
+    "k": [
+      48,
+      128,
+      512,
+      2048
+    ],
+    "coverage": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "cp_lo": [
+      0.9817246596448638,
+      0.9817246596448638,
+      0.9817246596448638,
+      0.9817246596448638
+    ],
+    "cp_hi": [
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "nominal": 0.95,
+    "replicates": 200,
+    "truth_F": [
+      0.0892211439609303,
+      0.04436168513475887,
+      0.021778713667519222,
+      0.020003304597365032
+    ]
+  }
+}

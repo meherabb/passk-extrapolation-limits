@@ -1,0 +1,245 @@
+{
+  "figure": "F18_bands_vs_forecasts_all_streams",
+  "figsize": [
+    5.42,
+    1.92
+  ],
+  "palette": [
+    "#1b9e77",
+    "#d95f02",
+    "#7570b3",
+    "#e7298a",
+    "#66a61e",
+    "#e6ab02",
+    "#a6761d",
+    "#666666",
+    "#1f1f1f",
+    "#2c7fb8"
+  ],
+  "method_colors": {
+    "Doubling (ours)": "#1b9e77",
+    "LP-cert (ours)": "#d95f02",
+    "Chen et al.": "#7570b3",
+    "Power law": "#e7298a",
+    "Beta-binomial": "#66a61e",
+    "NPMLE": "#e6ab02",
+    "Moment matching": "#a6761d",
+    "Bound / envelope": "#666666",
+    "Base model": "#1f1f1f",
+    "Instruct model": "#2c7fb8"
+  },
+  "model_colors": {
+    "base": "#1f1f1f",
+    "instruct": "#2c7fb8"
+  },
+  "layout_audit": {
+    "n_text": 27,
+    "text_overlaps": 0,
+    "text_outside_canvas": 0,
+    "legend_over_axes": 0,
+    "overlap_examples": [],
+    "outside_examples": []
+  },
+  "caption": "Identification bands and forecast families across every stream.",
+  "dry_run": false,
+  "smoke": false,
+  "data": {
+    "streams": [
+      "G-B0.5",
+      "G-I0.5",
+      "G-B1.5",
+      "G-RL1.5",
+      "M-B0.5",
+      "M-I0.5",
+      "M-I0.5L"
+    ],
+    "families": [
+      "Power law",
+      "Beta-binomial",
+      "NPMLE",
+      "Moment matching"
+    ],
+    "G-B0.5|k128": {
+      "band32_pass": [
+        0.7333484360429308,
+        0.9990395319404196
+      ],
+      "forecasts_pass": {
+        "Power law": 0.9080922201993958,
+        "Beta-binomial": 0.9010019176104032,
+        "NPMLE": 0.8713951442820879,
+        "Moment matching": 0.9957663037108782
+      },
+      "chen256_pass": 0.9330822745342059
+    },
+    "G-I0.5|k128": {
+      "band32_pass": [
+        0.8010466181155409,
+        1.0
+      ],
+      "forecasts_pass": {
+        "Power law": 0.9412711973891352,
+        "Beta-binomial": 0.9365996379664707,
+        "NPMLE": 0.9384829987847381,
+        "Moment matching": 0.9879620157934382
+      },
+      "chen256_pass": 0.9647877443589081
+    },
+    "G-B1.5|k128": {
+      "band32_pass": [
+        0.8894323209178644,
+        1.0
+      ],
+      "forecasts_pass": {
+        "Power law": 0.9830319801804028,
+        "Beta-binomial": 0.9901181284788695,
+        "NPMLE": 0.9641385147208896,
+        "Moment matching": 0.9997714886044373
+      },
+      "chen256_pass": 0.985996830972805
+    },
+    "G-RL1.5|k128": {
+      "band32_pass": [
+        0.8977473494980462,
+        1.0
+      ],
+      "forecasts_pass": {
+        "Power law": 0.9791599834778397,
+        "Beta-binomial": 0.9800413377630538,
+        "NPMLE": 0.9763365570686547,
+        "Moment matching": 0.997759024060864
+      },
+      "chen256_pass": 0.9701852207190472
+    },
+    "M-B0.5|k128": {
+      "band32_pass": [
+        0.538403018986148,
+        0.9570786115397507
+      ],
+      "forecasts_pass": {
+        "Power law": 0.7556474423245756,
+        "Beta-binomial": 0.7317020423156456,
+        "NPMLE": 0.7264091522679598,
+        "Moment matching": 0.6055726234815095
+      },
+      "chen256_pass": 0.7767372969239685
+    },
+    "M-I0.5|k128": {
+      "band32_pass": [
+        0.541475010651018,
+        0.9578105761369042
+      ],
+      "forecasts_pass": {
+        "Power law": 0.7163798312922156,
+        "Beta-binomial": 0.6973798988063482,
+        "NPMLE": 0.7701961719122691,
+        "Moment matching": 0.8752498335111706
+      },
+      "chen256_pass": 0.6934878131212341
+    },
+    "M-I0.5L|k128": {
+      "band32_pass": [
+        0.6390483378801005,
+        0.9815955419421085
+      ],
+      "forecasts_pass": {
+        "Power law": 0.8251385230380266,
+        "Beta-binomial": 0.8187650876086504,
+        "NPMLE": 0.8234781364629915,
+        "Moment matching": 0.9047788924414347
+      },
+      "chen256_pass": 0.8390421450452574
+    },
+    "G-B0.5|k10000": {
+      "band32_pass": [
+        0.7333573177935713,
+        1.0
+      ],
+      "forecasts_pass": {
+        "Power law": 0.9901692796112421,
+        "Beta-binomial": 0.9863964235196367,
+        "NPMLE": 0.9653212339655045,
+        "Moment matching": 1.0
+      },
+      "chen256_pass": null
+    },
+    "G-I0.5|k10000": {
+      "band32_pass": [
+        0.8010554817189859,
+        1.0
+      ],
+      "forecasts_pass": {
+        "Power law": 0.9946045104163826,
+        "Beta-binomial": 0.9927203819210233,
+        "NPMLE": 0.9847848242707823,
+        "Moment matching": 1.0
+      },
+      "chen256_pass": null
+    },
+    "G-B1.5|k10000": {
+      "band32_pass": [
+        0.8894411702639025,
+        1.0
+      ],
+      "forecasts_pass": {
+        "Power law": 0.9994696596928191,
+        "Beta-binomial": 0.9998678555730371,
+        "NPMLE": 0.9827504570145471,
+        "Moment matching": 1.0
+      },
+      "chen256_pass": null
+    },
+    "G-RL1.5|k10000": {
+      "band32_pass": [
+        0.8977561961308913,
+        1.0
+      ],
+      "forecasts_pass": {
+        "Power law": 0.9977875907102957,
+        "Beta-binomial": 0.997849603322964,
+        "NPMLE": 0.9994483055480793,
+        "Moment matching": 1.0
+      },
+      "chen256_pass": null
+    },
+    "M-B0.5|k10000": {
+      "band32_pass": [
+        0.5384137568561247,
+        1.0
+      ],
+      "forecasts_pass": {
+        "Power law": 0.95383945571977,
+        "Beta-binomial": 0.9245318185013698,
+        "NPMLE": 0.9160145447441885,
+        "Moment matching": 0.6055733543256896
+      },
+      "chen256_pass": null
+    },
+    "M-I0.5|k10000": {
+      "band32_pass": [
+        0.5415026645911372,
+        1.0
+      ],
+      "forecasts_pass": {
+        "Power law": 0.9159035728352136,
+        "Beta-binomial": 0.8763230178912521,
+        "NPMLE": 0.9506632158823163,
+        "Moment matching": 1.0
+      },
+      "chen256_pass": null
+    },
+    "M-I0.5L|k10000": {
+      "band32_pass": [
+        0.6390574892522117,
+        1.0
+      ],
+      "forecasts_pass": {
+        "Power law": 0.9630867888447707,
+        "Beta-binomial": 0.951816443942157,
+        "NPMLE": 0.9803161320729662,
+        "Moment matching": 1.0
+      },
+      "chen256_pass": null
+    }
+  }
+}
